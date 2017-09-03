@@ -41,9 +41,16 @@ public class CharacterMove : MonoBehaviour {
 
 	void LateUpdate () {
 		if (isMoving) {
-			Vector3 movingEnd = movingStart + new Vector3 (moveX * tileLength, 0, moveZ * tileLength);
+			// 设定位置
+			Vector3 movement = new Vector3 (moveX * tileLength, 0, moveZ * tileLength);
+			Vector3 movingEnd = movingStart + movement;
 			Vector3 p = Vector3.Lerp (movingStart, movingEnd, movingProgress);
 			transform.position = p;
+			// 设定转向
+			Quaternion q1 = transform.rotation;
+			Quaternion q2 = Quaternion.LookRotation(movement);
+			transform.rotation = Quaternion.Lerp(q1, q2, movingProgress);
+	//		transform.LookAt (movingEnd + new Vector3(moveX, 0, moveZ));
 			if (movingProgress >= 1) {	// 一格的移动完成，数据全部重置成初始状态
 				moveX = 0;
 				moveZ = 0;

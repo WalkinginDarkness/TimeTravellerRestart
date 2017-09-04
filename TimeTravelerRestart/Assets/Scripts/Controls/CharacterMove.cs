@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CharacterMove : MonoBehaviour {
+	[Tooltip("玩家ID")]
+	public string playerID = "1";
+
 	[Tooltip("移动的最小分度值")]
 	public float tileLength = 1.0f;
 	private float moveX = 0;
@@ -20,13 +23,15 @@ public class CharacterMove : MonoBehaviour {
 	void Start () {
 		movingStart = transform.position;
 		movingSpeedInverse = 1.0f / movingSpeed;
+		if (playerID == "")
+			playerID = "1";
 	}
 	
 	void Update () {
 		if (!isMoving) {
 			// 如果不在移动状态下
-			float mx = Input.GetAxisRaw ("Horizontal");	// 临时的x方向值
-			float mz = Input.GetAxisRaw ("Vertical");	// 临时的z方向值
+			float mx = Input.GetAxisRaw ("Horizontal"+playerID);	// 临时的x方向值
+			float mz = Input.GetAxisRaw ("Vertical"+playerID);	// 临时的z方向值
 			if (mx != 0 || mz != 0) {	// 如果有输入
 				moveX = mx;				// 设定 moveX 的值，此值在一次移动中仅会被修改一次
 				moveZ = mz;				// 这是因为isMoving=true后，该分支就不会再进入了

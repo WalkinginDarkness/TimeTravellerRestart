@@ -22,8 +22,8 @@ public class SimpleMove : MonoBehaviour {
 
 	void Move(){
 
-		float mx = Input.GetAxis ("Horizontal"+playerID);	// 临时的x方向值
-		float mz = Input.GetAxis ("Vertical"+playerID);	// 临时的z方向值
+		float mx = Input.GetAxisRaw ("Horizontal"+playerID);	// 临时的x方向值
+		float mz = Input.GetAxisRaw ("Vertical"+playerID);	// 临时的z方向值
 
 		Quaternion q1 = transform.rotation;
 		// 如果输入的位置接近于0，那么不进行转向（否则LookRotation会抛警告）
@@ -32,7 +32,7 @@ public class SimpleMove : MonoBehaviour {
 			transform.rotation = Quaternion.Lerp(q1, q2, Time.deltaTime * rotateSpeed);
 
 			// 当当前方向和目标方向夹角过大时，只转向，不进行移动
-			if (Quaternion.Angle (q1, q2) < 5) {
+			if (Quaternion.Angle (q1, q2) < 180) {
 				// 为什么要用InverseTransformVector，因为转完之后Translate移动的方向也变了
 				// 所以需要从局部的坐标映射回全局的坐标
 				transform.Translate(transform.InverseTransformVector(new Vector3(mx,0,mz)));

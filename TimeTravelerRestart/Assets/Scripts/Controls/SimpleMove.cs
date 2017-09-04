@@ -23,7 +23,9 @@ public class SimpleMove : MonoBehaviour {
 	void Move(){
 
 		float mx = Input.GetAxisRaw ("Horizontal"+playerID);	// 临时的x方向值
-		float mz = Input.GetAxisRaw ("Vertical"+playerID);	// 临时的z方向值
+		float mz = Input.GetAxisRaw ("Vertical"+playerID);		// 临时的z方向值
+
+
 
 		Quaternion q1 = transform.rotation;
 		// 如果输入的位置接近于0，那么不进行转向（否则LookRotation会抛警告）

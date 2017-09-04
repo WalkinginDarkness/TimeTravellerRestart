@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BulletMove : MonoBehaviour {
 	public float moveSpeed;
+	public float rotateSpeed;
 	public Vector3 direction;
 	// Use this for initialization
 	void Start () {
@@ -14,5 +15,6 @@ public class BulletMove : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		transform.Translate (Vector3.forward * moveSpeed * Time.deltaTime);
+		transform.RotateAround (transform.position, transform.forward, rotateSpeed * Time.deltaTime);
 	}
 }

@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4958780514300628}
   - component: {fileID: 64422860670792972}
-  - component: {fileID: 114193260868678812}
   m_Layer: 0
   m_Name: 'rocket '
   m_TagString: Untagged
@@ -53,6 +52,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4142478754618908}
+  - component: {fileID: 114940841808887702}
   m_Layer: 0
   m_Name: BulletR
   m_TagString: Untagged
@@ -93,14 +93,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1356419124327582}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: -11.6, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 4760162369955486}
   m_Father: {fileID: 4142478754618908}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!23 &23739454837091860
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -154,12 +154,12 @@ MeshCollider:
   m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 0}
---- !u!114 &114193260868678812
+--- !u!114 &114940841808887702
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1356419124327582}
+  m_GameObject: {fileID: 1929541984290860}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a7a4d4dc333bf834e82b0c1596003953, type: 3}

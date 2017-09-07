@@ -2,19 +2,35 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class BulletMove : MonoBehaviour {
 	public float moveSpeed;
 	public float rotateSpeed;
 	public Vector3 direction;
-	// Use this for initialization
+
+    private string parentName;
+
 	void Start () {
-		//direction = new Vector3 (1, 0, 0);
-		Destroy (gameObject, 15);
+        if (parentName == null) {
+            parentName = "";
+        }
+        Destroy(gameObject, 15);
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
-		transform.Translate (Vector3.forward * moveSpeed * Time.deltaTime);
-		transform.RotateAround (transform.position, transform.forward, rotateSpeed * Time.deltaTime);
+        bulletMove();
+        bulletRotate();
 	}
+
+    public void setParentName(string parentName) {
+        this.parentName = parentName;
+    }
+
+    private void bulletMove() {
+        transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime * (int)(GameController.playerShootSpeed.ContainsKey(parentName) ? GameController.playerMoveSpeed[parentName] : 1));
+    }
+
+    private void bulletRotate() {
+        transform.RotateAround(transform.position, transform.forward, rotateSpeed * Time.deltaTime);
+    }
 }

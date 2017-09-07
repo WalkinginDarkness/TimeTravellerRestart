@@ -6,7 +6,7 @@ public class SkillAbstract : MonoBehaviour {
 	[Header("设定技能按键")]
 	public KeyCode key;
 	[Header("设定技能名称")]
-	public string name;
+	public string skillName;
 
 	public float coldDown;
 	private float timeColdDownLeft;
@@ -21,7 +21,7 @@ public class SkillAbstract : MonoBehaviour {
 				ReleaseSkill ();
 				timeColdDownLeft = coldDown;
 			} else {
-				Debug.Log ("Skill[" + name + "] is colding down! " + timeColdDownLeft);
+				Debug.Log ("Skill [" + skillName + "] is colding down! " + timeColdDownLeft);
 			}
 		}
 		timeColdDownLeft -= Time.deltaTime;

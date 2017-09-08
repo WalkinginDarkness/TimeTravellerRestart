@@ -7,30 +7,33 @@ public class BulletMove : MonoBehaviour {
 	public float moveSpeed;
 	public float rotateSpeed;
 	public Vector3 direction;
+    public bool isBulletSpeedAcce = true;
 
+    //设置从属关系，以便查询角色状态从而决定实际移动速度
     private string parentName;
 
 	void Start () {
-        if (parentName == null) {
-            parentName = "";
-        }
         Destroy(gameObject, 15);
 	}
 
 	void Update () {
-        bulletMove();
-        bulletRotate();
+        BulletMovement();
+        BulletRotation();
 	}
 
-    public void setParentName(string parentName) {
+    public void SetParentName(string parentName) {
         this.parentName = parentName;
     }
 
-    private void bulletMove() {
-        transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime * (int)(GameController.playerShootSpeed.ContainsKey(parentName) ? GameController.playerMoveSpeed[parentName] : 1));
+    private void BulletMovement() {
+        transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime * GetPlayerBulletSpeedProperty());
     }
 
-    private void bulletRotate() {
+    private void BulletRotation() {
         transform.RotateAround(transform.position, transform.forward, rotateSpeed * Time.deltaTime);
+    }
+
+    private float GetPlayerBulletSpeedProperty() {
+        return isBulletSpeedAcce ? (PlayerStatusController.playerBulletSpeed.ContainsKey(parentName) ? PlayerStatusController.playerBulletSpeed[parentName] : 1.0f) : 1.0f;
     }
 }

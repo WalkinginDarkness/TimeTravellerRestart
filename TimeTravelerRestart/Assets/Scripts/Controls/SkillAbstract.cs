@@ -9,26 +9,35 @@ public class SkillAbstract : MonoBehaviour {
 	public string skillName;
 
 	public float coldDown;
-	private float timeColdDownLeft;
+	protected float coldDownTimeLeft;
 
 	void Start () {
-		timeColdDownLeft = 0;
+        coldDownTimeLeft = 0.0f;
 	}
 	
 	void Update () {
 		if (Input.GetKeyDown (key)) {
-			if (timeColdDownLeft <= 0) {
+			if (coldDownTimeLeft <= 0) {
 				ReleaseSkill ();
-				timeColdDownLeft = coldDown;
+                coldDownTimeLeft = coldDown;
 			} else {
-				Debug.Log ("Skill [" + skillName + "] is colding down! " + timeColdDownLeft);
+				Debug.Log ("Skill [" + skillName + "] is colding down! " + coldDownTimeLeft);
 			}
 		}
-		timeColdDownLeft -= Time.deltaTime;
-	}
+        coldDownTimeLeft -= Time.deltaTime * GetPlayerSkillSpeedProperty();
+        AdditionalUpdate();
+    }
 
-	public virtual void ReleaseSkill() {
-		Debug.LogWarning ("Abstract Skill not implemented!");
-	}
+    private float GetPlayerSkillSpeedProperty() {
+        return PlayerStatusController.playerBulletSpeed.ContainsKey("1") ? (int)PlayerStatusController.playerMoveSpeed["1"] : 1.0f;
+    }
 
+    public virtual void ReleaseSkill() {
+        Debug.LogWarning ("Abstract Skill not implemented!");
+	}
+    
+    //用于方便子类利用Update()，若不使用可以不重写
+    public virtual void AdditionalUpdate() {
+
+    }
 }

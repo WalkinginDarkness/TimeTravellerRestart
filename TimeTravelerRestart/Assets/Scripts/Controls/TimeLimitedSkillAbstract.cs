@@ -28,10 +28,12 @@ public class TimeLimitedSkillAbstract : SkillAbstract {
         }
     }
 
-    public override void ReleaseSkill() {
-        skillDurationTimeLeft = skillDurationTime;
-        isSkillFinish = !isSkillFinish;
-        BeforeSkill();
+	public override void ReleaseSkill() {
+		if (isSkillFinish == true) {
+			skillDurationTimeLeft = skillDurationTime;
+			isSkillFinish = !isSkillFinish;
+			BeforeSkill();
+		}
     }
 
     public virtual void BeforeSkill() {

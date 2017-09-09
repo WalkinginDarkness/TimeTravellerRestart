@@ -8,14 +8,12 @@ public class MapGenerator : MonoBehaviour {
 	public GameObject mapRoot;
 	public float tileSize;
 	public int radiusRange;
-
-	// Use this for initialization
+    
 	void Start () {
-		int r = radiusRange;
-		for (int x = -r; x <= r; x++)
-			for (int z = -r; z <= r; z++) {
+		for (int x = -radiusRange; x <= radiusRange; x++)
+			for (int z = -radiusRange; z <= radiusRange; z++) {
 				int k = Random.Range (0, elements.Count);
-				Instantiate (elements [k], new Vector3 (x*tileSize, 0, z*tileSize), Quaternion.identity, mapRoot.transform); 
+				Instantiate (elements[k], new Vector3 (x * tileSize, 0, z * tileSize), Quaternion.identity, mapRoot.transform); 
 			}
 	}
 	

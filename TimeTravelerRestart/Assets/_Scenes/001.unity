@@ -463,9 +463,9 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 50
-  orthographic: 0
-  orthographic size: 5
+  field of view: 82.1
+  orthographic: 1
+  orthographic size: 100
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -864,7 +864,7 @@ MonoBehaviour:
   - {fileID: 1468583892473156, guid: 56ff6c1660faa484d9d75f7b87e1cbee, type: 2}
   mapRoot: {fileID: 365426599}
   tileSize: 10
-  radiusRange: 4
+  radiusRange: 16
 --- !u!4 &1572207005
 Transform:
   m_ObjectHideFlags: 0

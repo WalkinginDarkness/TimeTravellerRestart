@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Name123 : MonoBehaviour {
+public class ChildrenBulletParentNameSetterTool : MonoBehaviour {
 
 	public void SetParentName(string name) {
         BulletMove[] childrenBullets = GetComponentsInChildren<BulletMove>();

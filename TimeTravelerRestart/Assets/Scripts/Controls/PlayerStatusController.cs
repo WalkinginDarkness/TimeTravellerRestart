@@ -40,6 +40,16 @@ public class PlayerStatusController : MonoBehaviour {
             property.Remove(playerId);
         }
     }
+
+    public static void RemoveAllPlayers() {
+        foreach (string player in players) {
+            foreach (Dictionary<string, float> property in properties) {
+                property.Remove(player);
+            }
+        }
+        players.Clear();
+    }
+
     //生成随机玩家名，使用时间戳，因此不会重复
     private static string GenerateRandomPlayerName() {
         System.Random random = new System.Random();

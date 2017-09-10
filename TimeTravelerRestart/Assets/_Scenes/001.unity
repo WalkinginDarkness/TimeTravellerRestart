@@ -250,6 +250,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mechanism: {fileID: 1153293399609322, guid: 9ddfb6d8e0722364da35b3355c39f5bc, type: 2}
   thisGameObject: {fileID: 261181307}
+  particles: {fileID: 198000012777718758, guid: acf39d9f4addf294d93fa56fa373961b,
+    type: 2}
 --- !u!65 &261181310
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -53,6 +53,8 @@ GameObject:
   - component: {fileID: 4657796398713948}
   - component: {fileID: 114031312702269598}
   - component: {fileID: 65518542876003222}
+  - component: {fileID: 114217282139114560}
+  - component: {fileID: 54024952964031052}
   m_Layer: 0
   m_Name: BulletRocket 1
   m_TagString: Untagged
@@ -94,7 +96,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1935751807248122}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 33.854527, y: 21.289133, z: -15.432806}
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.75}
   m_Children:
   - {fileID: 4525665901136228}
@@ -140,6 +142,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1063580267430570}
   m_Mesh: {fileID: 4300000, guid: ccde49392eb0e7f4c95f5aa072d0f37b, type: 3}
+--- !u!54 &54024952964031052
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1935751807248122}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!65 &65518542876003222
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -167,3 +184,16 @@ MonoBehaviour:
   rotateSpeed: 90
   direction: {x: 0, y: 0, z: 0}
   isBulletSpeedAcce: 1
+--- !u!114 &114217282139114560
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1935751807248122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e140189be4d54f49849c81aede928f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackDamage: 1000
+  target: Player2

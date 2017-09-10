@@ -20,6 +20,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4807250938492700}
   - component: {fileID: 114589111062605156}
+  - component: {fileID: 114922045950272510}
+  - component: {fileID: 65435711293914582}
+  - component: {fileID: 54183932253171726}
   m_Layer: 0
   m_Name: BulletRocket
   m_TagString: Untagged
@@ -93,7 +96,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1394424573236778}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.5, z: 1}
+  m_LocalPosition: {x: 29.065334, y: 20.915773, z: -26.333996}
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.75}
   m_Children:
   - {fileID: 4408818529385528}
@@ -139,6 +142,33 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1643295268502738}
   m_Mesh: {fileID: 4300000, guid: ccde49392eb0e7f4c95f5aa072d0f37b, type: 3}
+--- !u!54 &54183932253171726
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1394424573236778}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &65435711293914582
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1394424573236778}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.3015313, y: 9.394105, z: 12.361952}
+  m_Center: {x: -0.058361687, y: 0.48357645, z: -1.755141}
 --- !u!114 &114589111062605156
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -153,3 +183,17 @@ MonoBehaviour:
   moveSpeed: 5
   rotateSpeed: 90
   direction: {x: 0, y: 0, z: 0}
+  isBulletSpeedAcce: 1
+--- !u!114 &114922045950272510
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1394424573236778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e140189be4d54f49849c81aede928f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackDamage: 1000
+  target: Player1

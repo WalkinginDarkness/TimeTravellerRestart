@@ -1086,6 +1086,7 @@ MonoBehaviour:
   moveSpeed: 5
   rotateSpeed: 90
   direction: {x: 0, y: 0, z: 0}
+  destroyCallbackObject: {fileID: 0}
   isBulletSpeedAcce: 1
 --- !u!114 &114022263015002940
 MonoBehaviour:
@@ -1101,6 +1102,7 @@ MonoBehaviour:
   moveSpeed: 5
   rotateSpeed: 90
   direction: {x: 0, y: 0, z: 0}
+  destroyCallbackObject: {fileID: 0}
   isBulletSpeedAcce: 1
 --- !u!114 &114161964262006386
 MonoBehaviour:
@@ -1116,6 +1118,7 @@ MonoBehaviour:
   moveSpeed: 5
   rotateSpeed: 90
   direction: {x: 0, y: 0, z: 0}
+  destroyCallbackObject: {fileID: 0}
   isBulletSpeedAcce: 1
 --- !u!114 &114168641852033880
 MonoBehaviour:
@@ -1131,6 +1134,7 @@ MonoBehaviour:
   moveSpeed: 5
   rotateSpeed: 90
   direction: {x: 0, y: 0, z: 0}
+  destroyCallbackObject: {fileID: 0}
   isBulletSpeedAcce: 1
 --- !u!114 &114393170358522686
 MonoBehaviour:
@@ -1143,6 +1147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02ee46645ce37284eb74466024c3de40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  toByDestroyObject: {fileID: 1153293399609322}
 --- !u!114 &114475926610622556
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1157,6 +1162,7 @@ MonoBehaviour:
   moveSpeed: 5
   rotateSpeed: 90
   direction: {x: 0, y: 0, z: 0}
+  destroyCallbackObject: {fileID: 0}
   isBulletSpeedAcce: 1
 --- !u!114 &114933011176319916
 MonoBehaviour:
@@ -1172,6 +1178,7 @@ MonoBehaviour:
   moveSpeed: 5
   rotateSpeed: 90
   direction: {x: 0, y: 0, z: 0}
+  destroyCallbackObject: {fileID: 0}
   isBulletSpeedAcce: 1
 --- !u!114 &114935304402999374
 MonoBehaviour:
@@ -1187,6 +1194,7 @@ MonoBehaviour:
   moveSpeed: 5
   rotateSpeed: 90
   direction: {x: 0, y: 0, z: 0}
+  destroyCallbackObject: {fileID: 0}
   isBulletSpeedAcce: 1
 --- !u!114 &114976122055362854
 MonoBehaviour:
@@ -1202,4 +1210,5 @@ MonoBehaviour:
   moveSpeed: 5
   rotateSpeed: 90
   direction: {x: 0, y: 0, z: 0}
+  destroyCallbackObject: {fileID: 0}
   isBulletSpeedAcce: 1

@@ -5,8 +5,17 @@ using UnityEngine;
 public class SkillShoot : SkillAbstract {
 
 	public BulletMove bulletModel;
-    // TODO 可能需要维护 bullet 的实例数组
-    public GameObject lastBullet;
+	[HideInInspector]
+	public GameObject lastBullet;
+	[Tooltip("子弹射出的位置")]
+	public Transform bulletSpawnPoint;
+
+	void Start() {
+		if (bulletSpawnPoint == null) {
+			Debug.LogWarning (gameObject.name + "的子弹位置未指定，右击SkillShot组件，选择Update Bullet Spawn Point");
+			UpdateBullectSpawnPoint ();
+		}
+	}
 
 	public override void ReleaseSkill() {
         GenerateBullet();
@@ -17,7 +26,20 @@ public class SkillShoot : SkillAbstract {
      * 因此按照PlayerID来取相应属性，所以给子弹设定parent可以方便的进行速度调整
      */
     private void GenerateBullet() {
-        lastBullet = Instantiate(bulletModel.gameObject, transform.position, Quaternion.LookRotation(transform.forward));
+		lastBullet = Instantiate(bulletModel.gameObject, bulletSpawnPoint.position, Quaternion.LookRotation(transform.forward));
         lastBullet.GetComponent<BulletMove>().SetParentName(this.GetComponent<SimpleMove>().playerID);
     }
+
+	[ContextMenu ("Update Bullet Spawn Point")]
+	void UpdateBullectSpawnPoint ()
+	{
+		foreach (var child in gameObject.GetComponentsInChildren<Transform>()) {
+			if (child.name == "BulletSpawnPoint") {
+				bulletSpawnPoint = child;
+			}
+		}
+		if (bulletSpawnPoint == null) {
+			Debug.LogError ("无法设置子弹生成位置！(在Player下创建BulletSpawnPoint子对象，并设定其位置即可)");
+		}
+	}
 }

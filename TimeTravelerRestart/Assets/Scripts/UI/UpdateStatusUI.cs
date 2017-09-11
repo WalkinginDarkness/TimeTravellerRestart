@@ -30,7 +30,6 @@ public class UpdateStatusUI : MonoBehaviour {
 	void Update () {
         Player1PowerSlider.value = PlayerStatusController.playerPower["1"];
         Player2PowerSlider.value = PlayerStatusController.playerPower["2"];
-        Debug.Log("PlayerStatusController.playerPower[1]  value" + Player1PowerSlider.value);
-
+        //Debug.Log("PlayerStatusController.playerPower[1]  value" + Player1PowerSlider.value);
     }
 }

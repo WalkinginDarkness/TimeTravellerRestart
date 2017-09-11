@@ -2444,8 +2444,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerPowerSlideName: []
   PlayerHealthSlideName: []
-  Player1PowerSlider: {fileID: 1659858614}
-  Player2PowerSlider: {fileID: 1891053579}
+  Player1PowerSlider: {fileID: 1891053579}
+  Player2PowerSlider: {fileID: 1659858614}
 --- !u!1 &1646269167
 GameObject:
   m_ObjectHideFlags: 0

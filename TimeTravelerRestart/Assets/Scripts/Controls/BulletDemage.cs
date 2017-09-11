@@ -8,21 +8,30 @@ public class BulletDemage : MonoBehaviour {
     // 就是调用另一脚本的函数
     // 写得不好，要两种子弹
     public int attackDamage;
-    public string target;
-    GameObject victim;                          // Reference to the player GameObject.
 
-    // Use this for initialization
-    void Awake () {
-        victim = GameObject.FindGameObjectWithTag(target);
-    }
+    GameObject victim;   
+    private string shooter;
+    private string hit;
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == target)
+        // 因为player里的cube也有个collider，就用个if了
+        if (other.gameObject.GetComponent<SimpleMove>())
         {
-            Debug.Log(victim.name);
-            Attack(attackDamage);
-        }  
+            hit = other.gameObject.GetComponent<SimpleMove>().playerID;
+            shooter = gameObject.GetComponent<BulletMove>().GetParentName();
+
+            if (hit == shooter)
+            {
+                Debug.Log("noHurt");
+            }
+            else
+            {
+                victim = other.gameObject;
+                Debug.Log("hurt");
+                Attack(attackDamage);
+            }
+        }
     }
 
     void Attack(int attackDamage)
@@ -35,9 +44,8 @@ public class BulletDemage : MonoBehaviour {
         //{
         // ... damage the player.
         //playerHealth.TakeDamage(attackDamage);
-        Debug.Log("Hit");
         Destroy(gameObject);
-        victim.SendMessage("TakeDamage", attackDamage);
+        //victim.SendMessage("TakeDamage", attackDamage);
         //}
     }
 }

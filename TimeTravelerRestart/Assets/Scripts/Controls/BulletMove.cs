@@ -20,14 +20,14 @@ public class BulletMove : MonoBehaviour {
 	void Update () {
         BulletMovement();
         BulletRotation();
-	}
+    }
 
     public void SetParentName(string parentName) {
         this.parentName = parentName;
     }
 
-    public void GetParentName(string parentName) {
-        this.parentName = parentName;
+    public string GetParentName() {
+        return parentName;
     }
 
     private void BulletMovement() {

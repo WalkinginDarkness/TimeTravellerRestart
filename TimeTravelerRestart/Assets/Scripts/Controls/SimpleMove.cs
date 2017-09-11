@@ -20,7 +20,13 @@ public class SimpleMove : MonoBehaviour {
 
     void Update () {
 		Move ();
+        //Debug.Log(playerID);
 	}
+
+    public string GetPlayerID()
+    {
+        return playerID; 
+    }
 
     void Move(){
 

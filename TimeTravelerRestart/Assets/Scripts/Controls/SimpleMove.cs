@@ -9,18 +9,9 @@ public class SimpleMove : MonoBehaviour {
 	public float moveSpeed = 45.0f;
 	public float rotateSpeed = 6.0f;
 
-    //玩家开始时自动向GameController注册自身信息，若名称出现重复，则GameController会随机分配给玩家一个ID
-    private void Start() {
-        PlayerStatusController.RegisterPlayer(this);
-    }
-
     void Update () {
 		Move ();
 	}
-    //玩家销毁时自动向GameController销毁自身信息
-    private void OnDestroy() {
-        PlayerStatusController.RemovePlayer(playerID);
-    }
 
     void Move(){
 

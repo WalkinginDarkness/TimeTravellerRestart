@@ -3,11 +3,20 @@
 //TODO：目前玩家信息和Move脚本放在一起，以后修改
 public class SimpleMove : MonoBehaviour {
 
+    //按照之前的，玩家信息包括能量先放这里，之后要拿出来
 	[Tooltip("玩家ID")]
 	public string playerID = "1";
+    public float initialPower = 100.0f;
+    public float initialPowerIncreaseSpeed = 1.0f;
 
 	public float moveSpeed = 45.0f;
 	public float rotateSpeed = 6.0f;
+
+    private void Start()
+    {
+        PlayerStatusController.playerPower[playerID] = initialPower;
+        PlayerStatusController.playerPowerConsumeSpeed[playerID] = initialPowerIncreaseSpeed;
+    }
 
     void Update () {
 		Move ();

@@ -11,8 +11,13 @@ public class SkillAbstract : MonoBehaviour {
 	public float coldDown;
 	protected float coldDownTimeLeft;
 
-	void Start () {
+    public float powerConsumeSpeed = 0f;
+    protected float oldPowerConsumeSpeed = 0f;
+
+
+    void Start () {
         coldDownTimeLeft = 0.0f;
+        powerConsumeSpeed = 0.0f;
 	}
 	
 	void Update () {

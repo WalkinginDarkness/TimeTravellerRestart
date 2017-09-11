@@ -47,6 +47,13 @@ public class PauseMenuManager : MonoBehaviour {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
+    /*
+    public void RestartLevel()
+    {
+        // Reload the level that is currently loaded.
+        SceneManager.LoadScene(0);
+    }*/
+
     public void Quit()
     {
 #if UNITY_EDITOR

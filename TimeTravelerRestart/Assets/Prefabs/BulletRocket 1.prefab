@@ -96,7 +96,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1935751807248122}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 33.854527, y: 21.289133, z: -15.432806}
+  m_LocalPosition: {x: 0.22970438, y: 10.21797, z: -7.4591103}
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.75}
   m_Children:
   - {fileID: 4525665901136228}
@@ -167,8 +167,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4, y: 12, z: 12}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 4, y: 5.4365354, z: 16.099516}
+  m_Center: {x: 0, y: -0.8781111, z: 0.8159832}
 --- !u!114 &114031312702269598
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -183,6 +183,7 @@ MonoBehaviour:
   moveSpeed: 5
   rotateSpeed: 90
   direction: {x: 0, y: 0, z: 0}
+  destroyCallbackObject: {fileID: 0}
   isBulletSpeedAcce: 1
 --- !u!114 &114217282139114560
 MonoBehaviour:
@@ -196,4 +197,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackDamage: 1000
-  target: Player2

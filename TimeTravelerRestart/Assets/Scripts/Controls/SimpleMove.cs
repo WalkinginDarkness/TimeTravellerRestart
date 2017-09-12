@@ -3,23 +3,29 @@
 //TODO：目前玩家信息和Move脚本放在一起，以后修改
 public class SimpleMove : MonoBehaviour {
 
+    //按照之前的，玩家信息包括能量先放这里，之后要拿出来
 	[Tooltip("玩家ID")]
 	public string playerID = "1";
+    public float initialPower = 100.0f;
+    public float initialPowerIncreaseSpeed = 1.0f;
 
 	public float moveSpeed = 45.0f;
 	public float rotateSpeed = 6.0f;
 
-    //玩家开始时自动向GameController注册自身信息，若名称出现重复，则GameController会随机分配给玩家一个ID
-    private void Start() {
-        PlayerStatusController.RegisterPlayer(this);
+    private void Start()
+    {
+        PlayerStatusController.playerPower[playerID] = initialPower;
+        PlayerStatusController.playerPowerConsumeSpeed[playerID] = initialPowerIncreaseSpeed;
     }
 
     void Update () {
 		Move ();
+        //Debug.Log(playerID);
 	}
-    //玩家销毁时自动向GameController销毁自身信息
-    private void OnDestroy() {
-        PlayerStatusController.RemovePlayer(playerID);
+
+    public string GetPlayerID()
+    {
+        return playerID; 
     }
 
     void Move(){

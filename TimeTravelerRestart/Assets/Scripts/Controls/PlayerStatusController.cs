@@ -12,12 +12,16 @@ public class PlayerStatusController : MonoBehaviour {
     public static Dictionary<string, float> playerMoveSpeed = new Dictionary<string, float>();
     public static Dictionary<string, float> playerBulletSpeed = new Dictionary<string, float>();
     public static Dictionary<string, float> playerShootSpeed = new Dictionary<string, float>();
+    public static Dictionary<string, float> playerPowerConsumeSpeed = new Dictionary<string, float>();
+    public static Dictionary<string, float> playerPower = new Dictionary<string, float>();
     
     //需要新属性时添加新的Dict并在静态代码块中Add即可
     static PlayerStatusController() {
         properties.Add(playerMoveSpeed);
         properties.Add(playerBulletSpeed);
         properties.Add(playerShootSpeed);
+        properties.Add(playerPowerConsumeSpeed);
+        properties.Add(playerPower);
     }
 
     //用于注册玩家，并初始化玩家信息

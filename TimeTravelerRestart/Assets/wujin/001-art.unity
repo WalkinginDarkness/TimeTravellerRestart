@@ -318,6 +318,7 @@ BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
+<<<<<<< HEAD:TimeTravelerRestart/Assets/wujin/001-art.unity
   m_GameObject: {fileID: 146283335}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -325,6 +326,49 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 9.157182, y: 3.7510748, z: 2.1676788}
   m_Center: {x: -0.9473057, y: 1.8772216, z: 4.4832954}
+=======
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 133414705}
+  - component: {fileID: 133414706}
+  m_Layer: 0
+  m_Name: player_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &133414705
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 133414704}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 41.811493, y: 1.8134003, z: 44.109924}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1194931302}
+  - {fileID: 249635588}
+  - {fileID: 133138787}
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &133414706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 133414704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e543a12722d349ad958843dad3822d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerID: 2
+  moveSpeed: 10
+  rotateSpeed: 20
+>>>>>>> 934c9f56b7bd7ecdf79a9c0c2e701291d0bb1e9a:TimeTravelerRestart/Assets/001-art.unity
 --- !u!1001 &153402166
 Prefab:
   m_ObjectHideFlags: 0
@@ -1392,8 +1436,8 @@ MonoBehaviour:
   m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
+  m_HorizontalAxis: Horizontal1
+  m_VerticalAxis: Vertical1
   m_SubmitButton: Submit
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
@@ -5848,9 +5892,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 22
       objectReference: {fileID: 0}
+<<<<<<< HEAD:TimeTravelerRestart/Assets/wujin/001-art.unity
     - target: {fileID: 4901886011435272, guid: 8bd4de89394a0a34594d2e2df66ca3f9, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
+=======
+    - target: {fileID: 114347280288970340, guid: fd29d2f4e60631742a26332da15ecee8,
+        type: 2}
+      propertyPath: playerID
+      value: 22
+>>>>>>> 934c9f56b7bd7ecdf79a9c0c2e701291d0bb1e9a:TimeTravelerRestart/Assets/001-art.unity
       objectReference: {fileID: 0}
     - target: {fileID: 1489543709749520, guid: 8bd4de89394a0a34594d2e2df66ca3f9, type: 2}
       propertyPath: m_Name
@@ -5867,6 +5918,10 @@ Prefab:
     - target: {fileID: 4744390111954316, guid: 8bd4de89394a0a34594d2e2df66ca3f9, type: 2}
       propertyPath: m_LocalPosition.y
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1294756382934610, guid: fd29d2f4e60631742a26332da15ecee8, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8bd4de89394a0a34594d2e2df66ca3f9, type: 2}
@@ -6062,6 +6117,10 @@ Prefab:
     - target: {fileID: 4744390111954316, guid: 8bd4de89394a0a34594d2e2df66ca3f9, type: 2}
       propertyPath: m_LocalPosition.y
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1742105839622378, guid: 4dfcb1455d01d2d42b8ea501f5047b4b, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8bd4de89394a0a34594d2e2df66ca3f9, type: 2}
@@ -7457,8 +7516,69 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 4066796629208582, guid: ce2ac60435f984d409c776ee76530c74,
     type: 2}
+<<<<<<< HEAD:TimeTravelerRestart/Assets/wujin/001-art.unity
   m_PrefabInternal: {fileID: 1910790123}
 --- !u!1001 &1911650152
+=======
+  m_PrefabInternal: {fileID: 636346736}
+--- !u!1 &1709621706 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1795543871118978, guid: d57005449cf1a7e43ba42a56a30637f8,
+    type: 2}
+  m_PrefabInternal: {fileID: 2106556882}
+--- !u!4 &1709621707 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4887775805202526, guid: d57005449cf1a7e43ba42a56a30637f8,
+    type: 2}
+  m_PrefabInternal: {fileID: 2106556882}
+--- !u!114 &1709621708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1709621706}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e543a12722d349ad958843dad3822d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerID: 1
+  moveSpeed: 45
+  rotateSpeed: 6
+--- !u!4 &1710139446 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4901886011435272, guid: 8bd4de89394a0a34594d2e2df66ca3f9,
+    type: 2}
+  m_PrefabInternal: {fileID: 349130172}
+--- !u!1 &1715779269 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1742105839622378, guid: 4dfcb1455d01d2d42b8ea501f5047b4b,
+    type: 2}
+  m_PrefabInternal: {fileID: 1436810699}
+--- !u!4 &1715779270 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4885719564334234, guid: 4dfcb1455d01d2d42b8ea501f5047b4b,
+    type: 2}
+  m_PrefabInternal: {fileID: 1436810699}
+--- !u!95 &1715779271
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1715779269}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d5181d83f2d20414491d37adfab5f5ab, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!1001 &1717634785
+>>>>>>> 934c9f56b7bd7ecdf79a9c0c2e701291d0bb1e9a:TimeTravelerRestart/Assets/001-art.unity
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -7530,6 +7650,7 @@ Prefab:
   m_IsPrefabParent: 0
 --- !u!4 &1911650153 stripped
 Transform:
+<<<<<<< HEAD:TimeTravelerRestart/Assets/wujin/001-art.unity
   m_PrefabParentObject: {fileID: 4901886011435272, guid: 8bd4de89394a0a34594d2e2df66ca3f9,
     type: 2}
   m_PrefabInternal: {fileID: 1911650152}
@@ -7544,6 +7665,37 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 2140462127}
 --- !u!1001 &1925779849
+=======
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1725004909}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.61392695, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 793703853}
+  - {fileID: 1715779270}
+  - {fileID: 1709621707}
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1725004912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1725004909}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e543a12722d349ad958843dad3822d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerID: 1
+  moveSpeed: 10
+  rotateSpeed: 20
+--- !u!1001 &1739142198
+>>>>>>> 934c9f56b7bd7ecdf79a9c0c2e701291d0bb1e9a:TimeTravelerRestart/Assets/001-art.unity
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -7809,6 +7961,15 @@ Prefab:
     - target: {fileID: 4066796629208582, guid: ce2ac60435f984d409c776ee76530c74, type: 2}
       propertyPath: m_LocalScale.z
       value: 1.0000005
+      objectReference: {fileID: 0}
+    - target: {fileID: 1294756382934610, guid: fd29d2f4e60631742a26332da15ecee8, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114347280288970340, guid: fd29d2f4e60631742a26332da15ecee8,
+        type: 2}
+      propertyPath: playerID
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ce2ac60435f984d409c776ee76530c74, type: 2}

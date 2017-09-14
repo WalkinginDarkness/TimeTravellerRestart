@@ -9,12 +9,20 @@ public class PlayerStatusController : MonoBehaviour {
     private static HashSet<string> players = new HashSet<string>();
     private static List<Dictionary<string, float>> properties = new List<Dictionary<string, float>>();
 
+    // 角色移动速度
+    // 子弹速度
+    // 射击速度
+    // 能量消耗速率
+    // 角色能量
+    // 角色血量
     public static Dictionary<string, float> playerMoveSpeed = new Dictionary<string, float>();
     public static Dictionary<string, float> playerBulletSpeed = new Dictionary<string, float>();
     public static Dictionary<string, float> playerShootSpeed = new Dictionary<string, float>();
     public static Dictionary<string, float> playerPowerConsumeSpeed = new Dictionary<string, float>();
     public static Dictionary<string, float> playerPower = new Dictionary<string, float>();
     
+    public static Dictionary<string, float> playerHealth = new Dictionary<string, float>();
+
     //需要新属性时添加新的Dict并在静态代码块中Add即可
     static PlayerStatusController() {
         properties.Add(playerMoveSpeed);

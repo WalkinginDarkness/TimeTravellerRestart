@@ -6,6 +6,7 @@ public class SimpleMove : MonoBehaviour {
     //按照之前的，玩家信息包括能量先放这里，之后要拿出来
 	[Tooltip("玩家ID")]
 	public string playerID = "1";
+    public int initialHealth = 100; // 注意健康值要与滑条里的MaxValue一致
     public float initialPower = 100.0f;
     public float initialPowerIncreaseSpeed = 1.0f;
 
@@ -16,6 +17,8 @@ public class SimpleMove : MonoBehaviour {
     {
         PlayerStatusController.playerPower[playerID] = initialPower;
         PlayerStatusController.playerPowerConsumeSpeed[playerID] = initialPowerIncreaseSpeed;
+
+        PlayerStatusController.playerHealth[playerID] = initialHealth;
     }
 
     void Update () {

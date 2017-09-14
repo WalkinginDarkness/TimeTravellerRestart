@@ -18,9 +18,9 @@ public class BulletDemage : MonoBehaviour
     {
         // 因为player里的model也有个collider，就用个if了
         // 关键是不会从model推出player1，所以又弄多了一个boxCollider
-        if (other.gameObject.GetComponent<SimpleMove>())
+        if (other.gameObject.GetComponentInParent<SimpleMove>())//GetComponent<SimpleMove>())
         {
-            hitID = other.gameObject.GetComponent<SimpleMove>().playerID;
+            hitID = other.gameObject.GetComponentInParent<SimpleMove>().playerID;
             shooter = gameObject.GetComponent<BulletMove>().GetParentName();
 
             if (hitID == shooter)

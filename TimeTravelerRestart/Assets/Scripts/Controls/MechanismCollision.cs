@@ -8,6 +8,7 @@ public class MechanismCollision : MonoBehaviour {
 	public ParticleSystem particles;
     void OnTriggerEnter(Collider collider) {
         GameObject cloneMechanism = Instantiate(mechanism, new Vector3(transform.position.x, collider.transform.position.y, transform.position.z), new Quaternion());
+        // 机关被子弹触发后有bug：Object reference not set to an instance of an object
         cloneMechanism.GetComponent<ChildrenBulletParentNameSetterTool>().SetParentName(collider.GetComponent<SimpleMove>().playerID);
         Debug.Log("机关被触发");
 		Destroy(thisGameObject);

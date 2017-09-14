@@ -9,17 +9,13 @@ public class SimpleMove : MonoBehaviour {
     public float initialPower = 100.0f;
     public float initialPowerIncreaseSpeed = 1.0f;
 
-    public float initialHealth = 100.0f;
-
-    public float moveSpeed = 45.0f;
+	public float moveSpeed = 45.0f;
 	public float rotateSpeed = 6.0f;
 
     private void Start()
     {
         PlayerStatusController.playerPower[playerID] = initialPower;
         PlayerStatusController.playerPowerConsumeSpeed[playerID] = initialPowerIncreaseSpeed;
-
-        PlayerStatusController.playerHealth[playerID] = initialHealth;
     }
 
     void Update () {

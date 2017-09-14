@@ -9,32 +9,32 @@ public class BulletDemage : MonoBehaviour {
     // 写得不好，要两种子弹
     public int attackDamage;
 
-    //GameObject victim;   
+    GameObject victim;   
     private string shooter;
-    private string hitID;
+    private string hit;
 
     void OnTriggerEnter(Collider other)
     {
         // 因为player里的cube也有个collider，就用个if了
         if (other.gameObject.GetComponent<SimpleMove>())
         {
-            hitID = other.gameObject.GetComponent<SimpleMove>().playerID;
+            hit = other.gameObject.GetComponent<SimpleMove>().playerID;
             shooter = gameObject.GetComponent<BulletMove>().GetParentName();
 
-            if (hitID == shooter)
+            if (hit == shooter)
             {
                 Debug.Log("noHurt");
             }
             else
             {
-                //victim = other.gameObject;
+                victim = other.gameObject;
                 Debug.Log("hurt");
-                Attack(hitID, attackDamage);
+                Attack(attackDamage);
             }
         }
     }
 
-    void Attack(string hitID,int attackDamage)
+    void Attack(int attackDamage)
     {
         // Reset the timer.
         //timer = 0f;
@@ -43,11 +43,9 @@ public class BulletDemage : MonoBehaviour {
         //if (playerHealth.currentHealth > 0)
         //{
         // ... damage the player.
+        //playerHealth.TakeDamage(attackDamage);
         Destroy(gameObject);
-        PlayerStatusController.playerHealth[hitID] -= attackDamage;
-        Debug.Log(PlayerStatusController.playerHealth[hitID]);
-
-        // PlayerStatusController.playerPower[this.GetComponent<SimpleMove>().playerID] -= Time.deltaTime * PlayerStatusController.playerPowerConsumeSpeed[this.GetComponent<SimpleMove>().playerID];
+        //victim.SendMessage("TakeDamage", attackDamage);
         //}
     }
 }

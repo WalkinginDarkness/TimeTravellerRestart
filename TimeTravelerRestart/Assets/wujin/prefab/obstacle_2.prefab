@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4880184780450314}
   - component: {fileID: 33475207568286562}
   - component: {fileID: 23928348935574894}
-  - component: {fileID: 54538373323127664}
   - component: {fileID: 65379241907772910}
   m_Layer: 0
   m_Name: Model
@@ -298,21 +297,6 @@ Mesh:
   m_BakedConvexCollisionMesh: 
   m_BakedTriangleCollisionMesh: 
   m_MeshOptimized: 0
---- !u!54 &54538373323127664
-Rigidbody:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1301598255886054}
-  serializedVersion: 2
-  m_Mass: 100000
-  m_Drag: 100000
-  m_AngularDrag: 1000000
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!65 &65379241907772910
 BoxCollider:
   m_ObjectHideFlags: 1

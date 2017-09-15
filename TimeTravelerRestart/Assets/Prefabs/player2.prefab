@@ -38,6 +38,8 @@ GameObject:
   - component: {fileID: 4897432561078474}
   - component: {fileID: 33901250628923180}
   - component: {fileID: 23535746028442360}
+  - component: {fileID: 65473505863555602}
+  - component: {fileID: 95605287765108930}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -88,7 +90,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1670230274384636}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.52, y: 2.46, z: -2.01}
+  m_LocalPosition: {x: 0, y: 4, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4799232666672578}
@@ -114,7 +116,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1379615610080878}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -6.12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4897432561078474}
@@ -129,13 +131,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1151963561133104}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4799232666672578}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!23 &23535746028442360
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -183,10 +185,22 @@ BoxCollider:
   m_GameObject: {fileID: 1379615610080878}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 5.9729257, y: 6.334426, z: 4.396995}
   m_Center: {x: 0.32211804, y: 2.667213, z: -0.041688204}
+--- !u!65 &65473505863555602
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1151963561133104}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.7, y: 6.5, z: 5.4}
+  m_Center: {x: 0.35000002, y: 3.25, z: 0.29999995}
 --- !u!82 &82050243800712512
 AudioSource:
   m_ObjectHideFlags: 1
@@ -242,7 +256,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -266,7 +280,24 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
+--- !u!95 &95605287765108930
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1151963561133104}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 7e15121f5f042ed46aba81406403f2d2, type: 3}
+  m_Controller: {fileID: 9100000, guid: aa2987ffeeac29c4484ee1a9ae1fbd02, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114055761777596692
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -278,7 +309,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 249dae30e3bc74d0dbfa1afe7462d158, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: 0
+  key: 110
   skillName: 
   coldDown: 0
   powerConsumeSpeed: 0
@@ -293,14 +324,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 517fe2503eeb705469e101bd26af96c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: 0
-  skillName: 
-  coldDown: 0
-  powerConsumeSpeed: 0
-  skillDurationTime: 2
+  key: 109
+  skillName: "\u52A0\u901F"
+  coldDown: 2
+  powerConsumeSpeed: 10
+  skillDurationTime: 0.6
   shootSpeed: 1
-  moveSpeed: 1
-  bulletSpeed: 1
+  moveSpeed: 3
+  bulletSpeed: 10
 --- !u!114 &114881807466366004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -329,7 +360,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e632ed7f98988a4c9e5244e25bc8140, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: 0
+  key: 305
   skillName: 
   coldDown: 0
   powerConsumeSpeed: 0

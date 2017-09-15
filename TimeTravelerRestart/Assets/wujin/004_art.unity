@@ -3804,6 +3804,20 @@ Light:
   m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
+  m_FalloffTable:
+    m_Table[0]: 0
+    m_Table[1]: 0
+    m_Table[2]: 0
+    m_Table[3]: 0
+    m_Table[4]: 0
+    m_Table[5]: 0
+    m_Table[6]: 0
+    m_Table[7]: 0
+    m_Table[8]: 0
+    m_Table[9]: 0
+    m_Table[10]: 0
+    m_Table[11]: 0
+    m_Table[12]: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
@@ -4316,6 +4330,31 @@ Prefab:
         type: 2}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82050243800712512, guid: df7430ff9e1424247b43e1526e3900d9,
+        type: 2}
+      propertyPath: panLevelCustomCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82050243800712512, guid: df7430ff9e1424247b43e1526e3900d9,
+        type: 2}
+      propertyPath: reverbZoneMixCustomCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114055761777596692, guid: df7430ff9e1424247b43e1526e3900d9,
+        type: 2}
+      propertyPath: key
+      value: 109
+      objectReference: {fileID: 0}
+    - target: {fileID: 114227864731170134, guid: df7430ff9e1424247b43e1526e3900d9,
+        type: 2}
+      propertyPath: key
+      value: 110
+      objectReference: {fileID: 0}
+    - target: {fileID: 114967313017122176, guid: df7430ff9e1424247b43e1526e3900d9,
+        type: 2}
+      propertyPath: key
+      value: 306
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: df7430ff9e1424247b43e1526e3900d9, type: 2}

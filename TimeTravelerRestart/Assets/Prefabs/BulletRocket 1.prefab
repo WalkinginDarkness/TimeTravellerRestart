@@ -52,8 +52,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4657796398713948}
   - component: {fileID: 114031312702269598}
-  - component: {fileID: 65518542876003222}
   - component: {fileID: 114217282139114560}
+  - component: {fileID: 65518542876003222}
   - component: {fileID: 54024952964031052}
   m_Layer: 0
   m_Name: BulletRocket 1

@@ -36,10 +36,10 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4135618179313386}
-  - component: {fileID: 65686849068897122}
-  - component: {fileID: 54991259629766234}
   - component: {fileID: 114393604035948718}
   - component: {fileID: 114880877846010106}
+  - component: {fileID: 65686849068897122}
+  - component: {fileID: 54991259629766234}
   m_Layer: 0
   m_Name: bullet 1
   m_TagString: Untagged

@@ -49,8 +49,10 @@ public class SimpleMove : MonoBehaviour {
                 // 所以需要从局部的坐标映射回全局的坐标
                 transform.Translate(transform.InverseTransformVector(Time.deltaTime * moveSpeed * new Vector3(inputX, 0, inputZ) * (int)(PlayerStatusController.playerShootSpeed.ContainsKey(playerID) ? PlayerStatusController.playerMoveSpeed[playerID] : 1)));
 			}
-        }	
-	}
+        }
+        //防止Player1和Player2碰撞导致y脱离0的情况
+        transform.position = new Vector3(transform.position.x, 0, transform.position.z);
+    }
 
     void Death()
     {

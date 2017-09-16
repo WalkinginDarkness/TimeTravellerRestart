@@ -4,23 +4,24 @@ using UnityEngine;
 
 public class ChildrenBulletParentNameSetterTool : DestroyCallbackAbstract {
 
-    public GameObject toByDestroyObject;
     private int aliveBullet;
     
 
 	public void SetParentName(string name) {
         BulletMove[] childrenBullets = GetComponentsInChildren<BulletMove>();
-        for(int i = 0; i < childrenBullets.Length; i++) {
-            childrenBullets[i].SetParentName(name);
-        }
         aliveBullet = childrenBullets.Length;
+        for (int i = 0; i < childrenBullets.Length; i++) {
+            Debug.Log("----------" + i + "-------");
+            childrenBullets[i].SetParentName(name);
+            Debug.Log("----------" + i + "-------" + childrenBullets[i].GetParentName());
+        }
     }
 
     public override void ExecuteOnCallerDestroy() {
-        Debug.Log(aliveBullet);
+        Debug.Log(aliveBullet + "!!!!!!");
         --aliveBullet;
         if(aliveBullet == 0) {
-            Destroy(toByDestroyObject);
+            Destroy(gameObject);
         }
     }
 }

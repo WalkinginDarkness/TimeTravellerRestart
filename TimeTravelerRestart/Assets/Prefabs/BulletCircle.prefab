@@ -1210,9 +1210,7 @@ MonoBehaviour:
   moveSpeed: 5
   rotateSpeed: 90
   direction: {x: 0, y: 0, z: 0}
-  destroyCallbackObject: {fileID: 0}
-  isBulletSpeedAcce: 1
-  parentName: 
+  destroyCallbackObject: {fileID: 114872219641065346}
 --- !u!114 &114133960862065772
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1239,9 +1237,7 @@ MonoBehaviour:
   moveSpeed: 5
   rotateSpeed: 90
   direction: {x: 0, y: 0, z: 0}
-  destroyCallbackObject: {fileID: 0}
-  isBulletSpeedAcce: 1
-  parentName: 
+  destroyCallbackObject: {fileID: 114872219641065346}
 --- !u!114 &114245922644007688
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1280,9 +1276,7 @@ MonoBehaviour:
   moveSpeed: 5
   rotateSpeed: 90
   direction: {x: 0, y: 0, z: 0}
-  destroyCallbackObject: {fileID: 0}
-  isBulletSpeedAcce: 1
-  parentName: 
+  destroyCallbackObject: {fileID: 114872219641065346}
 --- !u!114 &114344678666835296
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1297,9 +1291,7 @@ MonoBehaviour:
   moveSpeed: 5
   rotateSpeed: 90
   direction: {x: 0, y: 0, z: 0}
-  destroyCallbackObject: {fileID: 0}
-  isBulletSpeedAcce: 1
-  parentName: 
+  destroyCallbackObject: {fileID: 114872219641065346}
 --- !u!114 &114388471908596240
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1314,9 +1306,7 @@ MonoBehaviour:
   moveSpeed: 5
   rotateSpeed: 90
   direction: {x: 0, y: 0, z: 0}
-  destroyCallbackObject: {fileID: 0}
-  isBulletSpeedAcce: 1
-  parentName: 
+  destroyCallbackObject: {fileID: 114872219641065346}
 --- !u!114 &114672890432136414
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1364,7 +1354,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02ee46645ce37284eb74466024c3de40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  toByDestroyObject: {fileID: 1458491703783834}
 --- !u!114 &114881991148536224
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1379,9 +1368,7 @@ MonoBehaviour:
   moveSpeed: 5
   rotateSpeed: 90
   direction: {x: 0, y: 0, z: 0}
-  destroyCallbackObject: {fileID: 0}
-  isBulletSpeedAcce: 1
-  parentName: 
+  destroyCallbackObject: {fileID: 114872219641065346}
 --- !u!114 &114951516812514224
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1408,9 +1395,7 @@ MonoBehaviour:
   moveSpeed: 5
   rotateSpeed: 90
   direction: {x: 0, y: 0, z: 0}
-  destroyCallbackObject: {fileID: 0}
-  isBulletSpeedAcce: 1
-  parentName: 
+  destroyCallbackObject: {fileID: 114872219641065346}
 --- !u!114 &114968986009339404
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1425,6 +1410,4 @@ MonoBehaviour:
   moveSpeed: 5
   rotateSpeed: 90
   direction: {x: 0, y: 0, z: 0}
-  destroyCallbackObject: {fileID: 0}
-  isBulletSpeedAcce: 1
-  parentName: 
+  destroyCallbackObject: {fileID: 114872219641065346}

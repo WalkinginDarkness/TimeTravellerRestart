@@ -150,6 +150,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17b40be0bfb61a34386f9ad362267cf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mechanism: {fileID: 0}
+  mechanism: {fileID: 1458491703783834, guid: cc6276093f72eea40aaa01c776b9a0ac, type: 2}
   thisGameObject: {fileID: 1072184246238392}
   particles: {fileID: 0}

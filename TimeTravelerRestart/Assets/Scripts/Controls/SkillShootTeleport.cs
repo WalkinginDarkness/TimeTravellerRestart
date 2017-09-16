@@ -18,7 +18,8 @@ public class SkillShootTeleport : SkillAbstract  {
             return;
         }
         //使触发此技能的玩家的position与rotation与子弹的相同
-        transform.position = exchangeBullet.transform.position;
+		var pos = exchangeBullet.transform.position;
+		transform.position = new Vector3(pos.x, transform.position.y, pos.z);
         Vector3 eulerAngles = exchangeBullet.transform.rotation.eulerAngles;
         transform.rotation = Quaternion.Euler(eulerAngles.x, eulerAngles.y, 0);
         //转移比较突兀，需要加入动画效果

@@ -104,7 +104,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1863144808758252}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -65.1}
+  m_LocalPosition: {x: 0, y: 0, z: -16}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4350730473689188}
@@ -133,7 +133,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1406635489553070}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4, z: 5}
+  m_LocalPosition: {x: 0, y: 2, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4167023785763378}
@@ -186,12 +186,12 @@ Rigidbody:
   m_GameObject: {fileID: 1863144808758252}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 100000
-  m_AngularDrag: 100000
+  m_Drag: Infinity
+  m_AngularDrag: Infinity
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 84
   m_CollisionDetection: 0
 --- !u!65 &65112799594009882
 BoxCollider:
@@ -200,7 +200,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1432167597005882}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 5.7, y: 6.8, z: 4.7000003}
@@ -212,11 +212,11 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1863144808758252}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 6.0994234, y: 7.129759, z: 3.767624}
-  m_Center: {x: 0.19101954, y: 3.0648794, z: 0.015686035}
+  m_Size: {x: 5.783057, y: 22.315361, z: 3.767624}
+  m_Center: {x: -0.2835307, y: 3.3812504, z: 0.015686035}
 --- !u!82 &82241057112376932
 AudioSource:
   m_ObjectHideFlags: 1
@@ -237,7 +237,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 11618.924
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -325,7 +325,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 249dae30e3bc74d0dbfa1afe7462d158, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: 101
+  key: 107
   skillName: "\u4F4D\u7F6E\u4EA4\u6362"
   coldDown: 0
   powerConsumeSpeed: 1
@@ -344,8 +344,8 @@ MonoBehaviour:
   initialHealth: 100
   initialPower: 100
   initialPowerIncreaseSpeed: 1
-  moveSpeed: 30
-  rotateSpeed: 6
+  moveSpeed: 20
+  rotateSpeed: 9
 --- !u!114 &114477717458211520
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -357,11 +357,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e632ed7f98988a4c9e5244e25bc8140, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: 32
+  key: 106
   skillName: "\u5C04\u51FB"
   coldDown: 0.5
   powerConsumeSpeed: 0
-  bulletModel: {fileID: 114704558886953734, guid: c5e90213f65253d47ac0fa782150affa,
+  bulletModel: {fileID: 114916633139537784, guid: ef4d9657b04bd7848a274190acff8fc9,
     type: 2}
   lastBullet: {fileID: 0}
   bulletSpawnPoint: {fileID: 4624864637725092}
@@ -376,14 +376,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 517fe2503eeb705469e101bd26af96c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: 116
+  key: 108
   skillName: "\u52A0\u901F"
   coldDown: 2
   powerConsumeSpeed: 10
   skillDurationTime: 0.6
   shootSpeed: 1
-  moveSpeed: 3
-  bulletSpeed: 10
+  moveSpeed: 4
+  bulletSpeed: 4
+  simulationSpeed: 1
 --- !u!198 &198596831874884092
 ParticleSystem:
   m_ObjectHideFlags: 1

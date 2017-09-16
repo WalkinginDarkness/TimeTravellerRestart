@@ -31,8 +31,8 @@ public class SimpleMove : MonoBehaviour {
         return playerID; 
     }
 
-    void Move(){
-
+    void Move()
+    {
 		float inputX = Input.GetAxisRaw ("Horizontal" + playerID);	// 临时的x方向值
 		float inputZ = Input.GetAxisRaw ("Vertical" + playerID);	// 临时的z方向值
 		
@@ -49,6 +49,11 @@ public class SimpleMove : MonoBehaviour {
                 // 所以需要从局部的坐标映射回全局的坐标
                 transform.Translate(transform.InverseTransformVector(Time.deltaTime * moveSpeed * new Vector3(inputX, 0, inputZ) * (int)(PlayerStatusController.playerShootSpeed.ContainsKey(playerID) ? PlayerStatusController.playerMoveSpeed[playerID] : 1)));
 			}
-		}	
+        }	
 	}
+
+    void Death()
+    {
+        Destroy(gameObject);
+    }
 }

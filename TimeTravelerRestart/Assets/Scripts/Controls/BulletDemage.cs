@@ -10,14 +10,12 @@ public class BulletDemage : MonoBehaviour
     // 写得不好，要两种子弹
     public int attackDamage;
 
-    GameObject victim;
+    GameObject hitObject;
     private string shooter;
     private string hitID;
 
     void OnTriggerEnter(Collider other)
     {
-        // 因为player里的model也有个collider，就用个if了
-        // 关键是不会从model推出player1，所以又弄多了一个boxCollider
         if (other.gameObject.GetComponentInParent<SimpleMove>())//GetComponent<SimpleMove>())
         {
             hitID = other.gameObject.GetComponentInParent<SimpleMove>().playerID;
@@ -29,18 +27,24 @@ public class BulletDemage : MonoBehaviour
             }
             else
             {
-                victim = other.gameObject;
+                hitObject = other.gameObject;
                 Debug.Log("hurt");
-                Attack(hitID, attackDamage);
+                Attack(hitObject, attackDamage);
             }
         }
     }
 
-    void Attack(string hitID, int attackDamage)
+    void Attack(GameObject hitObject, int attackDamage)
     {
         Destroy(gameObject);
+        string hitID = hitObject.GetComponentInParent<SimpleMove>().playerID;
         PlayerStatusController.playerHealth[hitID] -= attackDamage;
         Debug.Log(PlayerStatusController.playerHealth[hitID]);
+
+        if (PlayerStatusController.playerHealth[hitID] <= 0)
+        {
+            hitObject.SendMessage("Death");
+        }
     }
 }
     

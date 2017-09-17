@@ -12,6 +12,7 @@ public class SimpleMove : MonoBehaviour {
 
 	public float moveSpeed = 45.0f;
 	public float rotateSpeed = 6.0f;
+    public Vector3 addtionalMoveSpeed = new Vector3(0,0,0);
 
     private void Start()
     {
@@ -52,6 +53,8 @@ public class SimpleMove : MonoBehaviour {
         }
         //防止Player1和Player2碰撞导致y脱离0的情况
         transform.position = new Vector3(transform.position.x, 0, transform.position.z);
+        //额外强制移动
+        transform.position += addtionalMoveSpeed * Time.deltaTime;
     }
 
     void Death()

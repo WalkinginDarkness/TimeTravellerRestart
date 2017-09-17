@@ -491,7 +491,7 @@ Animator:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1735321919148450}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: fdd6eb71611cdeb41a70e7d22a03adbe, type: 2}
   m_CullingMode: 0
@@ -516,8 +516,9 @@ MonoBehaviour:
   initialHealth: 100
   initialPower: 100
   initialPowerIncreaseSpeed: 1
-  moveSpeed: 5
+  moveSpeed: 20
   rotateSpeed: 9
+  addtionalMoveSpeed: {x: 0, y: 0, z: 0}
 --- !u!114 &114438587407849088
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -551,7 +552,7 @@ MonoBehaviour:
   bulletModel: {fileID: 114070058879713964, guid: acf41911600718844881ac1ea855092e,
     type: 2}
   lastBullet: {fileID: 0}
-  bulletSpawnPoint: {fileID: 0}
+  bulletSpawnPoint: {fileID: 4595257722134980}
 --- !u!114 &114889714228328700
 MonoBehaviour:
   m_ObjectHideFlags: 1

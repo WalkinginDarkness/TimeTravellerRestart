@@ -305,8 +305,8 @@ Animator:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1432167597005882}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 7e15121f5f042ed46aba81406403f2d2, type: 3}
-  m_Controller: {fileID: 9100000, guid: aa2987ffeeac29c4484ee1a9ae1fbd02, type: 2}
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fdd6eb71611cdeb41a70e7d22a03adbe, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -346,6 +346,7 @@ MonoBehaviour:
   initialPowerIncreaseSpeed: 1
   moveSpeed: 20
   rotateSpeed: 9
+  addtionalMoveSpeed: {x: 0, y: 0, z: 0}
 --- !u!114 &114477717458211520
 MonoBehaviour:
   m_ObjectHideFlags: 1

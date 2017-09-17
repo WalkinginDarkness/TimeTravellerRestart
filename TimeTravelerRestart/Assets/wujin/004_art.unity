@@ -2986,6 +2986,10 @@ Prefab:
       propertyPath: m_Name
       value: cloud_1_2
       objectReference: {fileID: 0}
+    - target: {fileID: 4027440537426534, guid: 5598f533c5a72f94a99224bbdbec2d93, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 135
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5598f533c5a72f94a99224bbdbec2d93, type: 2}
   m_IsPrefabParent: 0

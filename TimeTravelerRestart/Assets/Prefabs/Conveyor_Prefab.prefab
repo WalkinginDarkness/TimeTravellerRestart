@@ -134,5 +134,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1988f4b9a95daec4ca011d2d23528895, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  addAddtionalMove: {x: 0, y: 0, z: -10}
+  addAddtionalMoveSpeed: {x: 0, y: 0, z: -10}
   tileNum: 3

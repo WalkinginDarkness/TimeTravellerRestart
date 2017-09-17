@@ -386,6 +386,8 @@ MonoBehaviour:
   moveSpeed: 4
   bulletSpeed: 4
   simulationSpeed: 1
+  accerateAnimPlaySpeed: 2
+  normalAnimPlaySpeed: 0.5
 --- !u!198 &198596831874884092
 ParticleSystem:
   m_ObjectHideFlags: 1

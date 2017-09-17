@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class AddAddtionalMove : MonoBehaviour {
 
-    public Vector3 addAddtionalMove;
+    public Vector3 addAddtionalMoveSpeed;
     public float tileNum=1.0f;
 
 	// Use this for initialization
 	void Start () {
         GetComponent<MeshRenderer>().materials[0].mainTextureScale=new Vector2(1.0f,tileNum);
-        this.addAddtionalMove = transform.rotation*addAddtionalMove;
+        this.addAddtionalMoveSpeed = transform.rotation* addAddtionalMoveSpeed;
 	}
 	
 	// Update is called once per frame
@@ -21,7 +21,7 @@ public class AddAddtionalMove : MonoBehaviour {
     private void OnTriggerEnter(Collider other){
         if(other.tag==Tags.player1 || other.tag == Tags.player2){
             SimpleMove simpleMoveCom= other.GetComponent<SimpleMove>();
-            other.GetComponent<SimpleMove>().addtionalMoveSpeed += this.addAddtionalMove;
+            other.GetComponent<SimpleMove>().addtionalMoveSpeed += this.addAddtionalMoveSpeed;
         }
     }
 
@@ -29,7 +29,7 @@ public class AddAddtionalMove : MonoBehaviour {
         if (other.tag == Tags.player1 || other.tag == Tags.player2)
         {
             SimpleMove simpleMoveCom = other.GetComponent<SimpleMove>();
-            other.GetComponent<SimpleMove>().addtionalMoveSpeed -= this.addAddtionalMove;
+            other.GetComponent<SimpleMove>().addtionalMoveSpeed -= this.addAddtionalMoveSpeed;
         }
     }
 }

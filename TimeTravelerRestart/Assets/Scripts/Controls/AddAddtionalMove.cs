@@ -5,10 +5,12 @@ using UnityEngine;
 public class AddAddtionalMove : MonoBehaviour {
 
     public Vector3 addAddtionalMove;
+    public float tileNum=1.0f;
 
 	// Use this for initialization
 	void Start () {
-		
+        GetComponent<MeshRenderer>().materials[0].mainTextureScale=new Vector2(1.0f,tileNum);
+        this.addAddtionalMove = transform.rotation*addAddtionalMove;
 	}
 	
 	// Update is called once per frame
@@ -17,7 +19,6 @@ public class AddAddtionalMove : MonoBehaviour {
 	}
 
     private void OnTriggerEnter(Collider other){
-        Debug.Log("Object enter:" + other.name);
         if(other.tag==Tags.player1 || other.tag == Tags.player2){
             SimpleMove simpleMoveCom= other.GetComponent<SimpleMove>();
             other.GetComponent<SimpleMove>().addtionalMoveSpeed += this.addAddtionalMove;
@@ -25,7 +26,6 @@ public class AddAddtionalMove : MonoBehaviour {
     }
 
     private void OnTriggerExit(Collider other){
-        Debug.Log("Object exit:" + other.name);
         if (other.tag == Tags.player1 || other.tag == Tags.player2)
         {
             SimpleMove simpleMoveCom = other.GetComponent<SimpleMove>();

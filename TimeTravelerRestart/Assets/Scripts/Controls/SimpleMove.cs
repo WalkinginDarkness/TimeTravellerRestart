@@ -1,5 +1,10 @@
 ﻿using UnityEngine;
 
+[System.Serializable]
+public class Boundary
+{
+    public float xMin, xMax, zMin, zMax;
+}
 //TODO：目前玩家信息和Move脚本放在一起，以后修改
 public class SimpleMove : MonoBehaviour {
 
@@ -14,12 +19,18 @@ public class SimpleMove : MonoBehaviour {
 	public float rotateSpeed = 6.0f;
     public Vector3 addtionalMoveSpeed = new Vector3(0,0,0);
 
+    // 可以用另一个方法，获取Boundary物体的colldier尺寸
+    // private BoxCollider boundary;
+    public Boundary boundary;
+
     private void Start()
     {
         PlayerStatusController.playerPower[playerID] = initialPower;
         PlayerStatusController.playerPowerConsumeSpeed[playerID] = initialPowerIncreaseSpeed;
 
         PlayerStatusController.playerHealth[playerID] = initialHealth;
+
+        //boundary = GameObject.FindWithTag("Boundary").GetComponent<BoxCollider>();
     }
 
     void Update () {
@@ -55,6 +66,14 @@ public class SimpleMove : MonoBehaviour {
         transform.position = new Vector3(transform.position.x, 0, transform.position.z);
         //额外强制移动
         transform.position += addtionalMoveSpeed * Time.deltaTime;
+
+        
+        GetComponent<Rigidbody>().position = new Vector3
+        (
+            Mathf.Clamp(transform.position.x, boundary.xMin, boundary.xMax),
+            transform.position.y,
+            Mathf.Clamp(transform.position.z, boundary.zMin, boundary.zMax)
+        );
     }
 
     void Death()

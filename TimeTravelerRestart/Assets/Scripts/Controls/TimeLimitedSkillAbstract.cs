@@ -5,7 +5,7 @@ using UnityEngine;
 public class TimeLimitedSkillAbstract : SkillAbstract {
 
     public float skillDurationTime = 2.0f;
-    protected float skillDurationTimeLeft = 1.0f;
+    protected float skillDurationTimeLeft = -1.0f;
 
     private bool isSkillFinish;
 
@@ -14,7 +14,7 @@ public class TimeLimitedSkillAbstract : SkillAbstract {
         if (skillDurationTime > coldDown) {
             skillDurationTime = coldDown - 0.1f;
         }
-        isSkillFinish = false;
+        isSkillFinish = true;
         skillDurationTimeLeft = 0.0f;
     }
 

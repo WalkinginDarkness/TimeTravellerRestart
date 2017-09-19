@@ -16,6 +16,7 @@ public class SkillSpeedUp : TimeLimitedSkillAbstract {
     private float oldBulletSpeed = 1.0f;
 	private float oldSimulationSpeed = 0.5f;
 
+    public ParticleSystem skillEffect;
 
 	private ParticleSystem ps;
     private Animator anim;
@@ -25,9 +26,17 @@ public class SkillSpeedUp : TimeLimitedSkillAbstract {
         anim = GetComponentInChildren<Animator>();
         anim.SetFloat(AnimNameHash.playSpeed, normalAnimPlaySpeed);
 		if (ps == null) {
-			Debug.LogError ("no ParticleSystem found!");
+			Debug.LogError ("no ParticleSystem of rocket trail found!");
 		}
 	}
+
+    private void FindEffect()
+    {
+        if (skillEffect == null)
+        {
+            Debug.LogError("no ParticleSystem of skill effect found!");
+        }
+    }
 
     public override void BeforeSkill() {
         //base.BeforeSkill();
@@ -46,6 +55,8 @@ public class SkillSpeedUp : TimeLimitedSkillAbstract {
 		main.startLifetimeMultiplier = 3.0f;
 
         anim.SetFloat(Animator.StringToHash(AnimNameHash.playSpeed),accerateAnimPlaySpeed);
+
+        skillEffect.Play();
     }
 
     public override void AfterSkill() {
@@ -58,6 +69,8 @@ public class SkillSpeedUp : TimeLimitedSkillAbstract {
 		main.simulationSpeed = oldSimulationSpeed;
 		main.startLifetimeMultiplier = 1.0f;
         anim.SetFloat(Animator.StringToHash(AnimNameHash.playSpeed), normalAnimPlaySpeed);
+
+        skillEffect.Stop();
     }
 
     public override void AdditionalUpdate()

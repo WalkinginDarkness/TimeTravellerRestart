@@ -14,6 +14,7 @@ public class DestroyByBoundary : MonoBehaviour {
     [SerializeField]
     public BulletDestroyStyle bulletDestroyStyle;
 
+    public ParticleSystem teleportEffect;
 
     void OnTriggerExit(Collider other)
     {
@@ -32,6 +33,10 @@ public class DestroyByBoundary : MonoBehaviour {
 
             if (bulletDestroyStyle == BulletDestroyStyle.LoopTeleport)
             {
+                // 生成粒子效果
+                // ParticleSystem ps = Instantiate(teleportEffect, transform, true);
+                // ps.Stop();
+                // ps.Play();
                 // 根据位置是否超界来判断往哪里移动
                 float xTotal = boundary.size.x * boundary.transform.localScale.x;
                 float zTotal = boundary.size.z * boundary.transform.localScale.z;

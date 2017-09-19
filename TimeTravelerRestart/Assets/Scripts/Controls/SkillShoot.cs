@@ -26,8 +26,16 @@ public class SkillShoot : SkillAbstract {
      * 因此按照PlayerID来取相应属性，所以给子弹设定parent可以方便的进行速度调整
      */
     private void GenerateBullet() {
+        if (lastBullet != null)
+        {
+            var s = lastBullet.GetComponent<BulletMove>();
+            if(s != null)
+                s.SetIsLastBullet(false);
+        }
 		lastBullet = Instantiate(bulletModel.gameObject, bulletSpawnPoint.position, Quaternion.LookRotation(transform.forward));
-        lastBullet.GetComponent<BulletMove>().SetParentName(this.GetComponent<SimpleMove>().playerID);
+        var script = lastBullet.GetComponent<BulletMove>();
+        script.SetParentName(this.GetComponent<SimpleMove>().playerID);
+        script.SetIsLastBullet(true);
     }
 
 	[ContextMenu ("Update Bullet Spawn Point")]

@@ -30,16 +30,11 @@ public class SkillSpeedUp : TimeLimitedSkillAbstract {
 		}
 	}
 
-    private void FindEffect()
-    {
-        if (skillEffect == null)
-        {
-            Debug.LogError("no ParticleSystem of skill effect found!");
-        }
-    }
-
     public override void BeforeSkill() {
         //base.BeforeSkill();
+        var id = this.GetComponent<SimpleMove>().playerID;
+        Debug.LogWarning(id);
+        Debug.LogWarning(PlayerStatusController.playerShootSpeed.Keys.Count);
         oldShootSpeed = (int)PlayerStatusController.playerShootSpeed[this.GetComponent<SimpleMove>().playerID];
         oldMoveSpeed = (int)PlayerStatusController.playerMoveSpeed[this.GetComponent<SimpleMove>().playerID];
         oldBulletSpeed = (int)PlayerStatusController.playerBulletSpeed[this.GetComponent<SimpleMove>().playerID];

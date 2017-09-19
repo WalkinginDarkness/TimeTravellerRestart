@@ -10,12 +10,15 @@ using UnityEditor;
 public class PauseMenuManager : MonoBehaviour {
 
     public GameObject pauseMenu;
+    DestroyByBoundary destroyByBoundary;
 
     void Start() {
         if(pauseMenu == null) { 
             pauseMenu = GameObject.Find("PauseMenu");
         }
         pauseMenu.SetActive(false);
+
+        destroyByBoundary = GameObject.FindGameObjectWithTag("Boundary").GetComponent<DestroyByBoundary>();
     }
 
     void Update() {
@@ -47,12 +50,26 @@ public class PauseMenuManager : MonoBehaviour {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
-    /*
+
+    public void ChangePlayStyle()
+    {
+        if (destroyByBoundary.bulletDestroyStyle == BulletDestroyStyle.DirectDestroy)
+        {
+            destroyByBoundary.bulletDestroyStyle = BulletDestroyStyle.LoopTeleport;
+            //btnText.text = "切换至默认模式";
+        }
+        else if (destroyByBoundary.bulletDestroyStyle == BulletDestroyStyle.LoopTeleport)
+        {
+            destroyByBoundary.bulletDestroyStyle = BulletDestroyStyle.DirectDestroy;
+            //btnText.text = "切换至无限模式";
+        }
+    }
+
     public void RestartLevel()
     {
         // Reload the level that is currently loaded.
         SceneManager.LoadScene(0);
-    }*/
+    }
 
     public void Quit()
     {

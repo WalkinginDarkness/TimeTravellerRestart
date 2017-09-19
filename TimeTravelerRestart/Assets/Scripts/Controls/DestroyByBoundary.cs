@@ -32,27 +32,22 @@ public class DestroyByBoundary : MonoBehaviour {
 
             if (bulletDestroyStyle == BulletDestroyStyle.LoopTeleport)
             {
-                // transform.forward前进方向是1.0or-1.0，但其他也会有一点0.1之类的
-                // 所以就判断0.9了
-                if (bullet.transform.forward.x < 0.9)
-                {
-                    bullet.transform.position += new Vector3(boundary.size.x, 0.0f, 0.0f);
-                }
-
-                if (bullet.transform.forward.x > -0.9)
-                {
-                    bullet.transform.position -= new Vector3(boundary.size.x, 0.0f, 0.0f);
-                }
-
-                if (bullet.transform.forward.z < 0.9)
-                {
-                    bullet.transform.position += new Vector3(0.0f, 0.0f, boundary.size.z);
-                }
-
-                if (bullet.transform.forward.z > -0.9)
-                {
-                    bullet.transform.position -= new Vector3(0.0f, 0.0f, boundary.size.z);
-                }
+                // 根据位置是否超界来判断往哪里移动
+                float xTotal = boundary.size.x * boundary.transform.localScale.x;
+                float zTotal = boundary.size.z * boundary.transform.localScale.z;
+                float xMin = -xTotal / 2, xMax = xTotal / 2;
+                float zMin = -zTotal / 2, zMax = zTotal / 2;
+                // translate via x axis
+                if (bullet.transform.position.x >= xMax)
+                    bullet.transform.position -= new Vector3(xTotal, 0.0f, 0.0f);
+                else if (bullet.transform.position.x <= xMin)
+                    bullet.transform.position += new Vector3(xTotal, 0.0f, 0.0f);
+                // translate via x axis
+                if (bullet.transform.position.z >= zMax)
+                    bullet.transform.position -= new Vector3(0.0f, 0.0f, zTotal);
+                else if (bullet.transform.position.z <= zMin)
+                    bullet.transform.position += new Vector3(0.0f, 0.0f, zTotal);
+                
             }            
         } 
     }

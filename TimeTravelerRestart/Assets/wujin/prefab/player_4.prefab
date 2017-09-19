@@ -516,9 +516,14 @@ MonoBehaviour:
   initialHealth: 100
   initialPower: 100
   initialPowerIncreaseSpeed: 1
-  moveSpeed: 20
+  moveSpeed: 5
   rotateSpeed: 9
   addtionalMoveSpeed: {x: 0, y: 0, z: 0}
+  boundary:
+    xMin: -100
+    xMax: 100
+    zMin: -100
+    zMax: 100
 --- !u!114 &114438587407849088
 MonoBehaviour:
   m_ObjectHideFlags: 1

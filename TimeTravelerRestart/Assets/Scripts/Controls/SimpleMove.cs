@@ -25,6 +25,10 @@ public class SimpleMove : MonoBehaviour {
 
     private void Start()
     {
+        //这句话用于注册player，从而根据playerID初始化player属性，切不可删除
+        PlayerStatusController.RegisterPlayer(this);
+        Debug.Log(this.name + " 初始化完毕");
+
         PlayerStatusController.playerPower[playerID] = initialPower;
         PlayerStatusController.playerPowerConsumeSpeed[playerID] = initialPowerIncreaseSpeed;
 

@@ -14,6 +14,7 @@ public class SkillShootTeleport : SkillAbstract  {
         exchangeBullet = this.GetComponent<SkillShoot>().lastBullet;
         //当无子弹时，重置冷却时间为0
         if (exchangeBullet == null) {
+            PlayerStatusController.playerPower[gameObject.GetComponent<SimpleMove>().GetPlayerID()] += powerConsumeSpeed;
             Debug.Log("no bullet can exchange position, skill [" + skillName + "] can't trigger!");
             coldDownTimeLeft = 0.0f;
             return;

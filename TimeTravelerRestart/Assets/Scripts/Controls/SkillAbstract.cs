@@ -28,44 +28,65 @@ public class SkillAbstract : MonoBehaviour {
         //powerConsumeSpeed = 0.0f;
 	}
 
-    void Update()
-    {
-        if (skillType == SkillType.按键施放)
-        {
-            if (Input.GetKeyDown(key))
-            {
-                if (coldDownTimeLeft <= 0)
-                {
-                    ReleaseSkill();
-                    coldDownTimeLeft = coldDown;
+    void FixedUpdate() {
+        if (skillType == SkillType.按键施放) {
+            if (Input.GetKeyDown(key)) {
+                if (coldDownTimeLeft <= 0) {
+                    /*
+                     * 目前释放技能失败会将蓝量加回
+                     * NOTE：也可以更改Release为一个待bool返回值的函数
+                     * 从而可以判断是否技能真正的释放，从而正确扣减蓝量
+                     */ 
+                    if(IsPlayerPowerEnough()) {
+                        PlayerPowerConsume();
+                        ReleaseSkill();
+                        coldDownTimeLeft = coldDown;
+                    } else {
+                        Debug.Log(this.name + " don't have enough to Execute Skill [" + skillName + "]! ");
+                    }
                 }
-                else
-                {
+                else {
                     Debug.Log("Skill [" + skillName + "] is colding down! " + coldDownTimeLeft);
                 }
             }
             coldDownTimeLeft -= Time.deltaTime * GetPlayerSkillSpeedProperty();
             AdditionalUpdate();
-        }
-        else if (skillType == SkillType.持续施放)
-        {
-            if (Input.GetKeyDown(key))
-            {
-                BeforeSkill();
-                ReleaseSkill();
-                AfterSkill();
-            }
-            if (Input.GetKeyUp(key))
-            {
-                BeforeSkill();
-                ReleaseSkill();
-                AfterSkill();
+        } else if (skillType == SkillType.持续施放) {
+            if (Input.GetKey(key)) {
+                /*
+                 * 直接释放即可
+                 */
+                if (IsPlayerPowerEnough()) {
+                    PlayerPowerConsume();
+                    BeforeSkill();
+                    ReleaseSkill();
+                    AfterSkill();
+                } else {
+                    Debug.Log(this.name + " don't have enough to Execute Skill [" + skillName + "]! ");
+                }
             }
         }
     }
 
+    private bool IsPlayerPowerEnough() {
+        if(powerConsumeSpeed < 0.0000001 || PlayerStatusController.playerPower[gameObject.GetComponent<SimpleMove>().GetPlayerID()] > powerConsumeSpeed) {
+            return true;
+        }
+        return false;
+    }
+    //冷却缩减，暂未实现
     private float GetPlayerSkillSpeedProperty() {
         return PlayerStatusController.playerBulletSpeed.ContainsKey("1") ? (int)PlayerStatusController.playerMoveSpeed["1"] : 1.0f;
+    }
+
+    /*
+     * 能量消耗
+     * 假设一定存在PlayerStatusController，并且每个Player都有SimpleMove
+     */
+    protected void PlayerPowerConsume() {
+       if (gameObject.tag == "Player1" || gameObject.tag == "Player2") {
+            PlayerStatusController.playerPower[gameObject.GetComponent<SimpleMove>().GetPlayerID()] -= powerConsumeSpeed;
+        }
     }
 
     public virtual void ReleaseSkill() {

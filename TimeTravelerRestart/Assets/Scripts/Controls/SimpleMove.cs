@@ -19,6 +19,8 @@ public class SimpleMove : MonoBehaviour {
 	public float rotateSpeed = 6.0f;
     public Vector3 addtionalMoveSpeed = new Vector3(0,0,0);
 
+    const int timeRatio = 10;
+
     // 可以用另一个方法，获取Boundary物体的colldier尺寸
     // private BoxCollider boundary;
     public Boundary boundary;
@@ -26,26 +28,28 @@ public class SimpleMove : MonoBehaviour {
     private void Start()
     {
         //这句话用于注册player，从而根据playerID初始化player属性，切不可删除
-        PlayerStatusController.RegisterPlayerProperty(this, initialHealth, initialPower, initialPowerIncreaseSpeed);
+        PlayerStatusController.RegisterPlayerProperty(this, initialHealth, initialPower, initialPowerIncreaseSpeed / timeRatio);
+        Debug.Log("玩家this.name" + " 初始化完毕");
 
-        Debug.Log(this.name + " 初始化完毕");
         //boundary = GameObject.FindWithTag("Boundary").GetComponent<BoxCollider>();
     }
 
     void Update () {
 		Move ();
-        //Debug.Log(playerID);
-	}
+        AutoIncreasePower();
+    }
 
     private void OnDestroy() {
         //Player销毁时根据playerID销毁销毁player的所有信息
-        PlayerStatusController.RemovePlayer(this.playerID);
+        PlayerStatusController.RemovePlayer(playerID);
     }
 
-    public string GetPlayerID() {
-        return playerID;
+    private void AutoIncreasePower() {
+        PlayerStatusController.PlayerPowerConsume(playerID, initialPower);
+        Debug.Log(this.playerID + " " + PlayerStatusController.playerPower[playerID]);
+        Debug.Log(this.playerID + " " + PlayerStatusController.playerPowerConsumeSpeed[playerID]);
     }
-
+    
     void Move()
     {
 		float inputX = Input.GetAxisRaw ("Horizontal" + playerID);	// 临时的x方向值
@@ -77,6 +81,10 @@ public class SimpleMove : MonoBehaviour {
             transform.position.y,
             Mathf.Clamp(transform.position.z, boundary.zMin, boundary.zMax)
         );
+    }
+
+    public string GetPlayerID() {
+        return playerID;
     }
 
     void Death()

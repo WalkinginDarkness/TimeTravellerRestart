@@ -37,16 +37,13 @@ public class SkillSpeedUp : TimeLimitedSkillAbstract {
         Debug.LogWarning(PlayerStatusController.playerShootSpeed.Keys.Count);
         
         oldShootSpeed = (int)PlayerStatusController.playerShootSpeed[this.GetComponent<SimpleMove>().playerID];
-        Debug.LogWarning("old---------------" + oldShootSpeed);
         oldMoveSpeed = (int)PlayerStatusController.playerMoveSpeed[this.GetComponent<SimpleMove>().playerID];
         oldBulletSpeed = (int)PlayerStatusController.playerBulletSpeed[this.GetComponent<SimpleMove>().playerID];
-        oldPowerConsumeSpeed = (int)PlayerStatusController.playerPowerConsumeSpeed[this.GetComponent<SimpleMove>().playerID];
 		oldSimulationSpeed = ps.main.simulationSpeed;
 		//oldPlayer
         PlayerStatusController.playerShootSpeed[this.GetComponent<SimpleMove>().playerID] = oldShootSpeed * shootSpeed;
         PlayerStatusController.playerMoveSpeed[this.GetComponent<SimpleMove>().playerID] = oldMoveSpeed * moveSpeed;
         PlayerStatusController.playerBulletSpeed[this.GetComponent<SimpleMove>().playerID] = oldBulletSpeed * bulletSpeed;
-        PlayerStatusController.playerPowerConsumeSpeed[this.GetComponent<SimpleMove>().playerID] = powerConsumeSpeed;
 		var main = ps.main;
 		main.simulationSpeed = oldSimulationSpeed * simulationSpeed;
 		main.startLifetimeMultiplier = 3.0f;
@@ -57,11 +54,10 @@ public class SkillSpeedUp : TimeLimitedSkillAbstract {
     }
 
     public override void AfterSkill() {
-        //base.AfterSkill();
+        base.AfterSkill();
         PlayerStatusController.playerShootSpeed[this.GetComponent<SimpleMove>().playerID] = oldShootSpeed;
         PlayerStatusController.playerMoveSpeed[this.GetComponent<SimpleMove>().playerID] = oldMoveSpeed;
         PlayerStatusController.playerBulletSpeed[this.GetComponent<SimpleMove>().playerID] = oldBulletSpeed;
-        PlayerStatusController.playerPowerConsumeSpeed[this.GetComponent<SimpleMove>().playerID] = oldPowerConsumeSpeed;
 		var main = ps.main;
 		main.simulationSpeed = oldSimulationSpeed;
 		main.startLifetimeMultiplier = 1.0f;
@@ -73,7 +69,6 @@ public class SkillSpeedUp : TimeLimitedSkillAbstract {
     public override void AdditionalUpdate()
     {
         base.AdditionalUpdate();
-        PlayerStatusController.playerPower[this.GetComponent<SimpleMove>().playerID] -= Time.deltaTime * PlayerStatusController.playerPowerConsumeSpeed[this.GetComponent<SimpleMove>().playerID];
     }
 
 }

@@ -32,8 +32,8 @@ public class PlayerStatusController : MonoBehaviour {
         properties.Add(playerPower);
     }
 
-    //用于注册玩家，并初始化玩家信息
-    public static void RegisterPlayer(SimpleMove player) {
+    //用于注册玩家，并初始化玩家能力信息
+    public static void RegisterPlayerProperty(SimpleMove player) {
         string playerID = player.playerID;
         if(playerID != null && playerID != "" && !players.Contains(playerID)) {
             players.Add(playerID);
@@ -46,6 +46,15 @@ public class PlayerStatusController : MonoBehaviour {
             property.Add(playerID, 1);
         }
     }
+
+    public static void RegisterPlayerProperty(SimpleMove player, float initialHealth, float initialPower, float initialPowerIncreaseSpeed) {
+        string playerID = player.GetPlayerID();
+        RegisterPlayerProperty(player);
+        playerPower[playerID] = initialPower;
+        playerPowerConsumeSpeed[playerID] = initialPowerIncreaseSpeed;
+        playerHealth[playerID] = initialHealth;
+    }
+
     //玩家销毁时清除玩家信息
     public static void RemovePlayer(string playerId) {
         foreach (Dictionary<string, float> property in properties) {

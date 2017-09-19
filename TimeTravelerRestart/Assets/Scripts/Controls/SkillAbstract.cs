@@ -25,7 +25,7 @@ public class SkillAbstract : MonoBehaviour {
 
     void Start () {
         coldDownTimeLeft = 0.0f;
-        powerConsumeSpeed = 0.0f;
+        //powerConsumeSpeed = 0.0f;
 	}
 
     void Update()

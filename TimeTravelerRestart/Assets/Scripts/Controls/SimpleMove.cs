@@ -26,14 +26,9 @@ public class SimpleMove : MonoBehaviour {
     private void Start()
     {
         //这句话用于注册player，从而根据playerID初始化player属性，切不可删除
-        PlayerStatusController.RegisterPlayer(this);
+        PlayerStatusController.RegisterPlayerProperty(this, initialHealth, initialPower, initialPowerIncreaseSpeed);
+
         Debug.Log(this.name + " 初始化完毕");
-
-        PlayerStatusController.playerPower[playerID] = initialPower;
-        PlayerStatusController.playerPowerConsumeSpeed[playerID] = initialPowerIncreaseSpeed;
-
-        PlayerStatusController.playerHealth[playerID] = initialHealth;
-
         //boundary = GameObject.FindWithTag("Boundary").GetComponent<BoxCollider>();
     }
 
@@ -42,9 +37,13 @@ public class SimpleMove : MonoBehaviour {
         //Debug.Log(playerID);
 	}
 
-    public string GetPlayerID()
-    {
-        return playerID; 
+    private void OnDestroy() {
+        //Player销毁时根据playerID销毁销毁player的所有信息
+        PlayerStatusController.RemovePlayer(this.playerID);
+    }
+
+    public string GetPlayerID() {
+        return playerID;
     }
 
     void Move()
@@ -84,4 +83,6 @@ public class SimpleMove : MonoBehaviour {
     {
         Destroy(gameObject);
     }
+
+    
 }

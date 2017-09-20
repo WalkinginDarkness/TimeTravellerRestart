@@ -10,6 +10,7 @@ using UnityEditor;
 public class PauseMenuManager : MonoBehaviour {
 
     public GameObject pauseMenu;
+    private Text btnModeText;
     DestroyByBoundary destroyByBoundary;
 
     void Start() {
@@ -17,8 +18,21 @@ public class PauseMenuManager : MonoBehaviour {
             pauseMenu = GameObject.Find("PauseMenu");
         }
         pauseMenu.SetActive(false);
+        // 寻找Mode的UI视图（现在是文字，之后也可以改成图片等）
+        if (btnModeText == null)
+        {
+            var go = pauseMenu.transform.Find("Options/Text");
+            if (go != null)
+            {
+                btnModeText = go.GetComponent<Text>();
+            } else
+            {
+                Debug.LogError("PauseMenu/Options/Text not found!");
+            }
+        }
 
         destroyByBoundary = GameObject.FindGameObjectWithTag("Boundary").GetComponent<DestroyByBoundary>();
+        UpdateModeUI();
     }
 
     void Update() {
@@ -42,20 +56,34 @@ public class PauseMenuManager : MonoBehaviour {
         if (destroyByBoundary.bulletDestroyStyle == BulletDestroyStyle.DirectDestroy)
         {
             destroyByBoundary.bulletDestroyStyle = BulletDestroyStyle.LoopTeleport;
-            //btnText.text = "切换至默认模式";
         }
         else if (destroyByBoundary.bulletDestroyStyle == BulletDestroyStyle.LoopTeleport)
         {
             destroyByBoundary.bulletDestroyStyle = BulletDestroyStyle.DirectDestroy;
-            //btnText.text = "切换至无限模式";
         }
+        UpdateModeUI();
+    }
+
+    // 视图的更新，现在是用文字，如果之后改成图片，只需要修改这个方法即可
+    private void UpdateModeUI()
+    {
+        if (destroyByBoundary.bulletDestroyStyle == BulletDestroyStyle.DirectDestroy)
+        {
+            btnModeText.text = "LOOP: FALSE";
+        } else if (destroyByBoundary.bulletDestroyStyle == BulletDestroyStyle.LoopTeleport)
+        {
+            btnModeText.text = "LOOP: TRUE";
+        }
+
     }
 
     public void RestartLevel()
     {
         // Reload the level that is currently loaded.
-        PlayerStatusController.RemoveAllPlayers();
+        // PlayerStatusController.RemoveAllPlayers();
+        
         Time.timeScale = 1;
+        Debug.LogWarning("Restarting Level!");
         SceneManager.LoadScene(0);
     }
 

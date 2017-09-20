@@ -39,7 +39,6 @@ public class SkillSpeedUp : TimeLimitedSkillAbstract {
         //oldBulletSpeed = (int)PlayerStatusController.playerBulletSpeed[this.GetComponent<SimpleMove>().playerID];
         //oldSimulationSpeed = ps.main.simulationSpeed;
         skillEffect.Stop();
-        //AfterSkill();
     }
 
     public override void BeforeSkill() {

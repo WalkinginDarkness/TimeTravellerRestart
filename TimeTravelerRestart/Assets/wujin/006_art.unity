@@ -21499,6 +21499,11 @@ Prefab:
       propertyPath: skillType
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114534004042392330, guid: 9908ddc8ca2bc834d8e48e14e2f48617,
+        type: 2}
+      propertyPath: powerConsumeSpeed
+      value: 30
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9908ddc8ca2bc834d8e48e14e2f48617, type: 2}
   m_IsPrefabParent: 0
@@ -21976,6 +21981,11 @@ Prefab:
         type: 2}
       propertyPath: skillName
       value: "\u4F20\u9001"
+      objectReference: {fileID: 0}
+    - target: {fileID: 114889714228328700, guid: a94ec2f0a9b540148aabe05755d8f692,
+        type: 2}
+      propertyPath: powerConsumeSpeed
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a94ec2f0a9b540148aabe05755d8f692, type: 2}

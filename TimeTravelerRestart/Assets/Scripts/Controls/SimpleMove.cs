@@ -29,7 +29,7 @@ public class SimpleMove : MonoBehaviour {
     {
         //这句话用于注册player，从而根据playerID初始化player属性，切不可删除
         PlayerStatusController.RegisterPlayerProperty(this, initialHealth, initialPower, initialPowerIncreaseSpeed / timeRatio);
-        Debug.Log("玩家this.name" + " 初始化完毕");
+        Debug.Log("玩家" + this.name + " 初始化完毕");
 
         //boundary = GameObject.FindWithTag("Boundary").GetComponent<BoxCollider>();
     }
@@ -46,8 +46,8 @@ public class SimpleMove : MonoBehaviour {
 
     private void AutoIncreasePower() {
         PlayerStatusController.PlayerPowerConsume(playerID, initialPower);
-        Debug.Log(this.playerID + " " + PlayerStatusController.playerPower[playerID]);
-        Debug.Log(this.playerID + " " + PlayerStatusController.playerPowerConsumeSpeed[playerID]);
+        //Debug.Log(this.playerID + " " + PlayerStatusController.playerPower[playerID]);
+        //Debug.Log(this.playerID + " " + PlayerStatusController.playerPowerConsumeSpeed[playerID]);
     }
     
     void Move()

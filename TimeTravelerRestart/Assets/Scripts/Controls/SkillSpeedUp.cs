@@ -28,14 +28,23 @@ public class SkillSpeedUp : TimeLimitedSkillAbstract {
 		if (ps == null) {
 			Debug.LogError ("no ParticleSystem of rocket trail found!");
 		}
+        ResetStatus();
 	}
 
+    void ResetStatus()
+    {
+        Debug.Log("Reset Player Status");
+        //oldShootSpeed = (int)PlayerStatusController.playerShootSpeed[this.GetComponent<SimpleMove>().playerID];
+        //oldMoveSpeed = (int)PlayerStatusController.playerMoveSpeed[this.GetComponent<SimpleMove>().playerID];
+        //oldBulletSpeed = (int)PlayerStatusController.playerBulletSpeed[this.GetComponent<SimpleMove>().playerID];
+        //oldSimulationSpeed = ps.main.simulationSpeed;
+        skillEffect.Stop();
+        //AfterSkill();
+    }
+
     public override void BeforeSkill() {
-        //base.BeforeSkill();
-        var id = this.GetComponent<SimpleMove>().playerID;
-        Debug.LogWarning(id);
-        Debug.LogWarning(PlayerStatusController.playerShootSpeed.Keys.Count);
-        
+        base.BeforeSkill();
+        Debug.Log("Before");        
         oldShootSpeed = (int)PlayerStatusController.playerShootSpeed[this.GetComponent<SimpleMove>().playerID];
         oldMoveSpeed = (int)PlayerStatusController.playerMoveSpeed[this.GetComponent<SimpleMove>().playerID];
         oldBulletSpeed = (int)PlayerStatusController.playerBulletSpeed[this.GetComponent<SimpleMove>().playerID];
@@ -55,6 +64,7 @@ public class SkillSpeedUp : TimeLimitedSkillAbstract {
 
     public override void AfterSkill() {
         base.AfterSkill();
+        Debug.Log("After");
         PlayerStatusController.playerShootSpeed[this.GetComponent<SimpleMove>().playerID] = oldShootSpeed;
         PlayerStatusController.playerMoveSpeed[this.GetComponent<SimpleMove>().playerID] = oldMoveSpeed;
         PlayerStatusController.playerBulletSpeed[this.GetComponent<SimpleMove>().playerID] = oldBulletSpeed;

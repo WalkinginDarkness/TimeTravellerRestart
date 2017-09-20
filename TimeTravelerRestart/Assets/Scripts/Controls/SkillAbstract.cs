@@ -22,6 +22,8 @@ public class SkillAbstract : MonoBehaviour {
     public float powerConsumeSpeed = 0f;
     protected float oldPowerConsumeSpeed = 0f;
 
+    protected bool b_是否正在施放技能 = false;
+
 
     void Start () {
         coldDownTimeLeft = 0.0f;
@@ -52,24 +54,42 @@ public class SkillAbstract : MonoBehaviour {
             coldDownTimeLeft -= Time.deltaTime * GetPlayerSkillSpeedProperty();
             AdditionalUpdate();
         } else if (skillType == SkillType.持续施放) {
-            if (Input.GetKey(key)) {
-                /*
-                 * 直接释放即可
-                 */
+            // 如果用GetKey方法，会在每帧调用BeforeSkill后立即调用AfterSkill
+            // 对于加速技能而言，它的速度并没有实质上的修改
+            // 故检测GetKey的返回和是否施放技能的状态的变化
+            // 1. 如果状态是false且GetKey是true
+            if (Input.GetKey(key) && !b_是否正在施放技能)
+            {
+                b_是否正在施放技能 = true;
+                BeforeSkill();
+            }
+            // 2. 如果状态是true且GetKey是false
+            if (!Input.GetKey(key) && b_是否正在施放技能)
+            {
+                b_是否正在施放技能 = false;
+                AfterSkill();
+            } else if (!IsPlayerPowerEnough())
+            {
+                // 3. 无论处于什么值，只要能量不足，就强制触发AfterSkill方法
+                b_是否正在施放技能 = false;
+                AfterSkill();
+                Debug.Log(this.name + " don't have enough to Execute Skill [" + skillName + "]! ");
+            }
+            // 实际技能的施放
+            if (b_是否正在施放技能) { 
                 if (IsPlayerPowerEnough()) {
                     PlayerPowerConsume();
-                    BeforeSkill();
                     ReleaseSkill();
-                    AfterSkill();
-                } else {
-                    Debug.Log(this.name + " don't have enough to Execute Skill [" + skillName + "]! ");
+                } else
+                {
+                    Debug.LogError("Should never run to here!");
                 }
             }
         }
     }
 
     private bool IsPlayerPowerEnough() {
-        if(powerConsumeSpeed < 0.0000001 || PlayerStatusController.playerPower[gameObject.GetComponent<SimpleMove>().GetPlayerID()] > powerConsumeSpeed) {
+        if(powerConsumeSpeed < 0.0000001 || PlayerStatusController.playerPower[gameObject.GetComponent<SimpleMove>().GetPlayerID()] > powerConsumeSpeed * Time.deltaTime) {
             return true;
         }
         return false;
@@ -85,7 +105,7 @@ public class SkillAbstract : MonoBehaviour {
      */
     protected void PlayerPowerConsume() {
        if (gameObject.tag == "Player1" || gameObject.tag == "Player2") {
-            PlayerStatusController.playerPower[gameObject.GetComponent<SimpleMove>().GetPlayerID()] -= powerConsumeSpeed;
+            PlayerStatusController.playerPower[gameObject.GetComponent<SimpleMove>().GetPlayerID()] -= powerConsumeSpeed * Time.deltaTime;
         }
     }
 
@@ -95,12 +115,12 @@ public class SkillAbstract : MonoBehaviour {
 
     public virtual void BeforeSkill()
     {
-        Debug.LogWarning("Abstract Skill not implemented!");
+        //Debug.LogWarning("Abstract Skill not implemented!");
     }
 
     public virtual void AfterSkill()
     {
-        Debug.LogWarning("Abstract Skill not implemented!");
+        //Debug.LogWarning("Abstract Skill not implemented!");
     }
 
     //用于方便子类利用Update()，若不使用可以不重写

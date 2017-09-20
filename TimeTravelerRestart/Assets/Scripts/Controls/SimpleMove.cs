@@ -89,6 +89,7 @@ public class SimpleMove : MonoBehaviour {
 
     void Death()
     {
+        Debug.Log("DIE");
         Destroy(gameObject);
     }
 

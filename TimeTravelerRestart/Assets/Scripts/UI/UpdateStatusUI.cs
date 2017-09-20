@@ -44,12 +44,18 @@ using System.Collections.Generic;
      // Update is called once per frame
      void Update()
      {
-         Player1PowerSlider.value = PlayerStatusController.playerPower["1"];
-         Player2PowerSlider.value = PlayerStatusController.playerPower["2"];
+        if (GameObject.FindGameObjectWithTag("Player1"))
+        {
+            Player1PowerSlider.value = PlayerStatusController.playerPower["1"];
+            Player1HealthSlider.value = PlayerStatusController.playerHealth["1"];
+        }
+
+        if (GameObject.FindGameObjectWithTag("Player2"))
+        {
+            Player2HealthSlider.value = PlayerStatusController.playerHealth["2"];
+            Player2PowerSlider.value = PlayerStatusController.playerPower["2"];
+        }
          //Debug.Log("PlayerStatusController.playerPower[1]  value" + Player1PowerSlider.value);
- 
-         Player1HealthSlider.value = PlayerStatusController.playerHealth["1"];
-         Player2HealthSlider.value = PlayerStatusController.playerHealth["2"];
          //Debug.Log("PlayerStatusController.playerPower[1]  value" + Player1HealthSlider.value);
      }
 }

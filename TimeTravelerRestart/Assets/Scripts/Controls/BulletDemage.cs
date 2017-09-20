@@ -37,9 +37,22 @@ public class BulletDemage : MonoBehaviour
         PlayerStatusController.playerHealth[hitID] -= attackDamage;
         Debug.Log(PlayerStatusController.playerHealth[hitID]);
 
+        Debug.Log(hitObject);
         if (PlayerStatusController.playerHealth[hitID] <= 0)
         {
-            hitObject.SendMessage("Death");
+            // 这是调用player脚本里的函数来销毁，也许方便播放音效什么的
+            if (hitObject.name == "Model")
+            {
+                hitObject.transform.parent.gameObject.GetComponent<SimpleMove>().SendMessage("Death");
+            }
+            else if (hitObject.name == "player1" || hitObject.name == "player2")
+            {
+                hitObject.GetComponent<SimpleMove>().SendMessage("Death");
+            }
+
+
+            // 这是直接在bulletDemage脚本销毁
+            // Destroy(hitObject);
         }
     }
 }

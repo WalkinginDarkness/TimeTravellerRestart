@@ -79,7 +79,7 @@ public class PlayerStatusController : MonoBehaviour {
      */
     public static void PlayerPowerConsume(string playerID, float maxPower) {
         if (playerPower[playerID] < maxPower) {
-            playerPower[playerID] -= playerPowerConsumeSpeed[playerID];
+            playerPower[playerID] -= playerPowerConsumeSpeed[playerID] * Time.deltaTime;
         }
     }
 

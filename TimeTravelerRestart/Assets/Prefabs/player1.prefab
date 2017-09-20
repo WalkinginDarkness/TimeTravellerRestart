@@ -358,6 +358,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   key: 107
   skillName: "\u4F4D\u7F6E\u4EA4\u6362"
+  skillType: 0
   coldDown: 0
   powerConsumeSpeed: 1
   teleportPrefab: {fileID: 198548075578565262, guid: 5fb35bc66888f4524a9e9fb813f85551,
@@ -376,15 +377,15 @@ MonoBehaviour:
   playerID: 1
   initialHealth: 100
   initialPower: 100
-  initialPowerIncreaseSpeed: 1
+  initialPowerIncreaseSpeed: 6
   moveSpeed: 5
   rotateSpeed: 9
   addtionalMoveSpeed: {x: 0, y: 0, z: 0}
   boundary:
-    xMin: -100
-    xMax: 100
-    zMin: -100
-    zMax: 100
+    xMin: -50
+    xMax: 50
+    zMin: -50
+    zMax: 50
 --- !u!114 &114477717458211520
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -398,6 +399,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   key: 106
   skillName: "\u5C04\u51FB"
+  skillType: 0
   coldDown: 0.5
   powerConsumeSpeed: 0
   bulletModel: {fileID: 114916633139537784, guid: ef4d9657b04bd7848a274190acff8fc9,
@@ -417,12 +419,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   key: 108
   skillName: "\u52A0\u901F"
+  skillType: 1
   coldDown: 2
-  powerConsumeSpeed: 10
+  powerConsumeSpeed: 30
   skillDurationTime: 0.6
   shootSpeed: 1
-  moveSpeed: 4
-  bulletSpeed: 4
+  moveSpeed: 1.5
+  bulletSpeed: 6
   simulationSpeed: 1
   accerateAnimPlaySpeed: 2
   normalAnimPlaySpeed: 0.5

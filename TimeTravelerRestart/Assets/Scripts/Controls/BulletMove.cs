@@ -83,8 +83,8 @@ public class BulletMove : MonoBehaviour {
 		// change simulation speed
 		foreach (var ps in pss) {
 			var main = ps.main;
-			//float ratio = GetPlayerBulletSpeedProperty();
-			//main.simulationSpeed = ratio * 1.0f;
+			float ratio = GetPlayerBulletSpeedProperty();
+			main.simulationSpeed = ratio * 1.0f;
 		}
 		// get ratio
 	}

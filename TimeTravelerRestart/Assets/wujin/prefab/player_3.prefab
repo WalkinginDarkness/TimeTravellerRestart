@@ -145,9 +145,9 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Material
-  m_Shader: {fileID: 10703, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 4
+  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: _EMISSION
+  m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -156,12 +156,62 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 28018485475952120}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 28018485475952120}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    m_Floats: []
-    m_Colors: []
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _BumpScale: 1
+    - _Cutoff: 0.5
+    - _DetailNormalMapScale: 1
+    - _DstBlend: 0
+    - _GlossMapScale: 1
+    - _Glossiness: 0.5
+    - _GlossyReflections: 1
+    - _Metallic: 0
+    - _Mode: 0
+    - _OcclusionStrength: 1
+    - _Parallax: 0.02
+    - _SmoothnessTextureChannel: 0
+    - _SpecularHighlights: 1
+    - _SrcBlend: 1
+    - _UVSec: 0
+    - _ZWrite: 1
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _EmissionColor: {r: 0.25, g: 0.25, b: 0.25, a: 1}
 --- !u!23 &23362696841971580
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -498,8 +548,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   key: 101
   skillName: "\u4F4D\u7F6E\u4EA4\u6362"
+  skillType: 0
   coldDown: 0
   powerConsumeSpeed: 1
+  teleportPrefab: {fileID: 0}
 --- !u!114 &114151247707549740
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -513,10 +565,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   key: 32
   skillName: "\u5C04\u51FB"
+  skillType: 0
   coldDown: 0.5
   powerConsumeSpeed: 0
-  bulletModel: {fileID: 114031312702269598, guid: 3a1af171a16b3ca4cb9dee248aa765b0,
-    type: 2}
+  bulletModel: {fileID: 0}
   lastBullet: {fileID: 0}
   bulletSpawnPoint: {fileID: 4029305524355934}
 --- !u!114 &114280073859628502
@@ -536,6 +588,12 @@ MonoBehaviour:
   initialPowerIncreaseSpeed: 1
   moveSpeed: 30
   rotateSpeed: 6
+  addtionalMoveSpeed: {x: 0, y: 0, z: 0}
+  boundary:
+    xMin: 0
+    xMax: 0
+    zMin: 0
+    zMax: 0
 --- !u!114 &114661881426076806
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -549,12 +607,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   key: 116
   skillName: "\u52A0\u901F"
+  skillType: 0
   coldDown: 2
   powerConsumeSpeed: 10
   skillDurationTime: 0.6
   shootSpeed: 1
   moveSpeed: 3
   bulletSpeed: 10
+  simulationSpeed: 1
+  accerateAnimPlaySpeed: 2
+  normalAnimPlaySpeed: 1
+  skillEffect: {fileID: 0}
 --- !u!198 &198886549187959296
 ParticleSystem:
   m_ObjectHideFlags: 1

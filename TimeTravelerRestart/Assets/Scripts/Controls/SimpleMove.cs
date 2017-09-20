@@ -19,7 +19,7 @@ public class SimpleMove : MonoBehaviour {
 	public float rotateSpeed = 6.0f;
     public Vector3 addtionalMoveSpeed = new Vector3(0,0,0);
 
-    const int timeRatio = 10;
+    const int timeRatio = 1;
 
     // 可以用另一个方法，获取Boundary物体的colldier尺寸
     // private BoxCollider boundary;
@@ -28,7 +28,7 @@ public class SimpleMove : MonoBehaviour {
     private void Start()
     {
         //这句话用于注册player，从而根据playerID初始化player属性，切不可删除
-        PlayerStatusController.RegisterPlayerProperty(this, initialHealth, initialPower, initialPowerIncreaseSpeed / timeRatio);
+        PlayerStatusController.RegisterPlayerProperty(this, initialHealth, initialPower, initialPowerIncreaseSpeed);
         Debug.Log("玩家" + this.name + " 初始化完毕");
 
         //boundary = GameObject.FindWithTag("Boundary").GetComponent<BoxCollider>();

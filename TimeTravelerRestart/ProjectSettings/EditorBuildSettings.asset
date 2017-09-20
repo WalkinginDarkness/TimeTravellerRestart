@@ -6,5 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/wujin/StartScene.unity
+    guid: 40b6f2bdd494101478fc2352bc90ea87
+  - enabled: 1
     path: Assets/wujin/006_art.unity
     guid: eb07e093eb08d2b4b8172d752197f89b

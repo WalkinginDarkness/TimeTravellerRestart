@@ -627,7 +627,7 @@ MonoBehaviour:
   playerID: 2
   initialHealth: 100
   initialPower: 100
-  initialPowerIncreaseSpeed: 6
+  initialPowerIncreaseSpeed: 2
   moveSpeed: 5
   rotateSpeed: 9
   addtionalMoveSpeed: {x: 0, y: 0, z: 0}
@@ -652,6 +652,7 @@ MonoBehaviour:
   key: 258
   skillName: "\u4F20\u9001"
   skillType: 0
+  clip: {fileID: 8300000, guid: 815c7b4c76361f54fa855f6f81527619, type: 3}
   coldDown: 0
   powerConsumeSpeed: 20
   teleportPrefab: {fileID: 198548075578565262, guid: 5fb35bc66888f4524a9e9fb813f85551,
@@ -670,6 +671,7 @@ MonoBehaviour:
   key: 257
   skillName: "\u5C04\u51FB"
   skillType: 0
+  clip: {fileID: 8300000, guid: 815c7b4c76361f54fa855f6f81527619, type: 3}
   coldDown: 0.5
   powerConsumeSpeed: 0
   bulletModel: {fileID: 114070058879713964, guid: acf41911600718844881ac1ea855092e,
@@ -690,6 +692,7 @@ MonoBehaviour:
   key: 259
   skillName: "\u52A0\u901F"
   skillType: 1
+  clip: {fileID: 8300000, guid: 815c7b4c76361f54fa855f6f81527619, type: 3}
   coldDown: 2
   powerConsumeSpeed: 30
   skillDurationTime: 0.6

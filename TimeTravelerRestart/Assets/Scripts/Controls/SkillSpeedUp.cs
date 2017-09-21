@@ -21,7 +21,8 @@ public class SkillSpeedUp : TimeLimitedSkillAbstract {
 	private ParticleSystem ps;
     private Animator anim;
 
-	void Start() {
+	new void Start() {
+        base.Start();
 		ps = GetComponentInChildren<ParticleSystem> ();
         anim = GetComponentInChildren<Animator>();
         anim.SetFloat(AnimNameHash.playSpeed, normalAnimPlaySpeed);

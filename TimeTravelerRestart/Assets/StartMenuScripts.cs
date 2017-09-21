@@ -18,7 +18,7 @@ public class StartMenuScripts : MonoBehaviour {
         cnt = 0;
         scene = 0;
     }
-    private void FixedUpdate()
+    private void Update()
     {
         cnt++;
         if (cnt > 200) {

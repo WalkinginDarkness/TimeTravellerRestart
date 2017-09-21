@@ -14,7 +14,9 @@ public class SkillAbstract : MonoBehaviour {
 	public string skillName;
     [Header("设定技能类型")]
     public SkillType skillType = SkillType.按键施放;
-
+    [Header("设定音效")]
+    public AudioClip clip;
+    private AudioSource audioSource;
 
     public float coldDown;
 	protected float coldDownTimeLeft;
@@ -25,9 +27,11 @@ public class SkillAbstract : MonoBehaviour {
     protected bool b_是否正在施放技能 = false;
 
 
-    void Start () {
+    protected void Start () {
         coldDownTimeLeft = 0.0f;
         //powerConsumeSpeed = 0.0f;
+        audioSource = gameObject.GetComponent<AudioSource>();
+
 	}
 
     void FixedUpdate() {
@@ -42,6 +46,7 @@ public class SkillAbstract : MonoBehaviour {
                     if(IsPlayerPowerEnough()) {
                         PlayerPowerConsume();
                         ReleaseSkill();
+                        PlaySound(false);
                         coldDownTimeLeft = coldDown;
                     } else {
                         Debug.Log(this.name + " don't have enough to Execute Skill [" + skillName + "]! ");
@@ -62,17 +67,20 @@ public class SkillAbstract : MonoBehaviour {
             {
                 b_是否正在施放技能 = true;
                 BeforeSkill();
+                PlaySound(true);
             }
             // 2. 如果状态是true且GetKey是false
             if (!Input.GetKey(key) && b_是否正在施放技能)
             {
                 b_是否正在施放技能 = false;
                 AfterSkill();
+                StopSound(true);
             } else if (!IsPlayerPowerEnough())
             {
                 // 3. 无论处于什么值，只要能量不足，就强制触发AfterSkill方法
                 b_是否正在施放技能 = false;
                 AfterSkill();
+                StopSound(true);
                 Debug.Log(this.name + " don't have enough to Execute Skill [" + skillName + "]! ");
             }
             // 实际技能的施放
@@ -85,6 +93,27 @@ public class SkillAbstract : MonoBehaviour {
                     Debug.LogError("Should never run to here!");
                 }
             }
+        }
+    }
+
+    void PlaySound(bool loop)
+    {
+        if (clip != null && audioSource != null)
+        {
+            audioSource.clip = clip;
+            audioSource.loop = loop;
+            audioSource.Stop();
+            audioSource.Play();
+        }
+    }
+
+    void StopSound(bool loop)
+    {
+        if (clip != null && audioSource != null)
+        {
+            audioSource.clip = clip;
+            audioSource.loop = loop;
+            audioSource.Stop();
         }
     }
 

@@ -6884,7 +6884,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af3ec0da3f08c404cb80837e53dac5aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletDestroyStyle: 0
+  bulletDestroyStyle: 1
   teleportEffect: {fileID: 198548075578565262, guid: 5fb35bc66888f4524a9e9fb813f85551,
     type: 2}
 --- !u!54 &719455272

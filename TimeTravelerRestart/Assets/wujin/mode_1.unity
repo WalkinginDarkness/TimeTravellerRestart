@@ -10191,7 +10191,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 1
-  m_Color: {r: 0.75, g: 0.74452335, b: 0.7003676, a: 1}
+  m_Color: {r: 0.74509805, g: 0.428, b: 0.733, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -10224,13 +10224,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1037707874}
-  m_LocalRotation: {x: -0.0045953426, y: 0.7641403, z: 0.61648905, w: 0.18976235}
+  m_LocalRotation: {x: 0.61501294, y: -0.24803267, z: -0.042883746, w: 0.74726164}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: -70.719, y: 120.55601, z: 43.418003}
+  m_LocalEulerAnglesHint: {x: 63.881004, y: -74.118004, z: -56.99}
 --- !u!1001 &1038509578
 Prefab:
   m_ObjectHideFlags: 0
@@ -21638,6 +21638,12 @@ Prefab:
       propertyPath: rotateSpeed
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 114477717458211520, guid: 9908ddc8ca2bc834d8e48e14e2f48617,
+        type: 2}
+      propertyPath: bulletModel
+      value: 
+      objectReference: {fileID: 114916633139537784, guid: 3b943bc3ab9107a469b38fe9a1e5d82a,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9908ddc8ca2bc834d8e48e14e2f48617, type: 2}
   m_IsPrefabParent: 0
@@ -22301,6 +22307,12 @@ Prefab:
       propertyPath: ColorModule.gradient.maxGradient.ctime1
       value: 50886
       objectReference: {fileID: 0}
+    - target: {fileID: 114777296143006950, guid: a94ec2f0a9b540148aabe05755d8f692,
+        type: 2}
+      propertyPath: bulletModel
+      value: 
+      objectReference: {fileID: 114070058879713964, guid: ec7fd7b5cc82ab04f9b944847a24c075,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a94ec2f0a9b540148aabe05755d8f692, type: 2}
   m_IsPrefabParent: 0

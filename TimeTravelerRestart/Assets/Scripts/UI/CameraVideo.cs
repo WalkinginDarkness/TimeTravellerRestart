@@ -5,6 +5,8 @@ using UnityEngine.Video;
 
 public class CameraVideo : MonoBehaviour {
 
+    static bool bPlay = false;
+
     public VideoPlayer videoPlayer;
     public GameObject canvas;
 
@@ -15,11 +17,21 @@ public class CameraVideo : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         canvas = GameObject.FindGameObjectWithTag("StartSceneUI");
-        canvas.SetActive(false);
         videoPlayer = GetComponent<VideoPlayer>();
-        videoPlayer.loopPointReached += EndReached;
-        //videoPlayer.Play();
-        //videoPlayer.prepareCompleted+=Prepared;
+        if (!bPlay)
+        {
+            canvas.SetActive(false);
+            videoPlayer.enabled = true;
+            videoPlayer.loopPointReached += EndReached;
+            videoPlayer.Play();
+        }
+        else
+        {
+            canvas.SetActive(true);
+            videoPlayer.enabled = false;
+        }
+
+
 	}
 
     private void Update(){
@@ -45,6 +57,7 @@ public class CameraVideo : MonoBehaviour {
 
     void EndReached(VideoPlayer videoPlayer)
     {
+        bPlay = true;
         bIsEnd = true;
     }
 }

@@ -10,7 +10,8 @@ public class SkillShoot : SkillAbstract {
 	[Tooltip("子弹射出的位置")]
 	public Transform bulletSpawnPoint;
 
-	void Start() {
+	new void Start() {
+        base.Start();
 		if (bulletSpawnPoint == null) {
 			Debug.LogWarning (gameObject.name + "的子弹位置未指定，右击SkillShot组件，选择Update Bullet Spawn Point");
 			UpdateBullectSpawnPoint ();

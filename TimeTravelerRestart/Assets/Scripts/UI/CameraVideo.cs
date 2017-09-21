@@ -32,8 +32,8 @@ public class CameraVideo : MonoBehaviour {
             }
             else
             {
-                canvas.SetActive(true);
-                
+                if(canvas!=null)
+                    canvas.SetActive(true);
                 videoPlayer.enabled = false;
             }
         }

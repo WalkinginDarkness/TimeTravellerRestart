@@ -39,6 +39,10 @@ public class PauseMenuManager : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Escape)) {
             PauseGame();
         }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            RestartLevel();
+        }
     }
 
     private void PauseGame() {
@@ -51,6 +55,11 @@ public class PauseMenuManager : MonoBehaviour {
         }
     }
  
+    public void ReturnToMain()
+    {
+        SceneManager.LoadScene(0, LoadSceneMode.Single);
+    }
+
     public void ChangePlayStyle()
     {
         if (destroyByBoundary.bulletDestroyStyle == BulletDestroyStyle.DirectDestroy)
@@ -84,7 +93,8 @@ public class PauseMenuManager : MonoBehaviour {
         
         Time.timeScale = 1;
         Debug.LogWarning("Restarting Level!");
-        SceneManager.LoadScene(0);
+        int scene = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(scene, LoadSceneMode.Single);
     }
 
     public void Quit()

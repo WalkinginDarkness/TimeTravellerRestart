@@ -46,7 +46,7 @@ public class SkillAbstract : MonoBehaviour {
                     if(IsPlayerPowerEnough()) {
                         PlayerPowerConsume();
                         ReleaseSkill();
-                        PlaySound();
+                        PlaySound(false);
                         coldDownTimeLeft = coldDown;
                     } else {
                         Debug.Log(this.name + " don't have enough to Execute Skill [" + skillName + "]! ");
@@ -67,17 +67,20 @@ public class SkillAbstract : MonoBehaviour {
             {
                 b_是否正在施放技能 = true;
                 BeforeSkill();
+                PlaySound(true);
             }
             // 2. 如果状态是true且GetKey是false
             if (!Input.GetKey(key) && b_是否正在施放技能)
             {
                 b_是否正在施放技能 = false;
                 AfterSkill();
+                StopSound(true);
             } else if (!IsPlayerPowerEnough())
             {
                 // 3. 无论处于什么值，只要能量不足，就强制触发AfterSkill方法
                 b_是否正在施放技能 = false;
                 AfterSkill();
+                StopSound(true);
                 Debug.Log(this.name + " don't have enough to Execute Skill [" + skillName + "]! ");
             }
             // 实际技能的施放
@@ -93,13 +96,24 @@ public class SkillAbstract : MonoBehaviour {
         }
     }
 
-    void PlaySound()
+    void PlaySound(bool loop)
     {
         if (clip != null && audioSource != null)
         {
             audioSource.clip = clip;
+            audioSource.loop = loop;
             audioSource.Stop();
             audioSource.Play();
+        }
+    }
+
+    void StopSound(bool loop)
+    {
+        if (clip != null && audioSource != null)
+        {
+            audioSource.clip = clip;
+            audioSource.loop = loop;
+            audioSource.Stop();
         }
     }
 

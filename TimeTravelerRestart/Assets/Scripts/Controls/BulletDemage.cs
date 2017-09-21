@@ -5,6 +5,7 @@ using UnityEngine;
 public class BulletDemage : MonoBehaviour
 {
     public int attackDamage;
+    public ParticleSystem explosionEffect;
 
     GameObject hitObject;
     private string shooter;
@@ -26,6 +27,10 @@ public class BulletDemage : MonoBehaviour
                 hitObject = other.gameObject;
                 Debug.Log("hurt");
                 Attack(hitObject, attackDamage);
+                // 触发粒子效果
+                var boom = Instantiate(explosionEffect, transform.position, Quaternion.LookRotation(Vector3.up));
+                boom.Play();
+                Destroy(boom, 4);
             }
         }
     }

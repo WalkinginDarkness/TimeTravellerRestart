@@ -631,6 +631,8 @@ MonoBehaviour:
   moveSpeed: 5
   rotateSpeed: 9
   addtionalMoveSpeed: {x: 0, y: 0, z: 0}
+  dieEffect: {fileID: 198622609098817710, guid: 565e15ade7b8a43029664172369cc411,
+    type: 2}
   boundary:
     xMin: -50
     xMax: 50

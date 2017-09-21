@@ -414,6 +414,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackDamage: 10
+  explosionEffect: {fileID: 198010730257889296, guid: 23db7cfb1016544c08e7240d90af4ce1,
+    type: 2}
 --- !u!114 &114916633139537784
 MonoBehaviour:
   m_ObjectHideFlags: 1

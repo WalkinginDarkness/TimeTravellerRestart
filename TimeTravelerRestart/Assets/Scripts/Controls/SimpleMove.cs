@@ -19,6 +19,9 @@ public class SimpleMove : MonoBehaviour {
 	public float rotateSpeed = 6.0f;
     public Vector3 addtionalMoveSpeed = new Vector3(0,0,0);
 
+    [Tooltip("死亡特效")]
+    public ParticleSystem dieEffect;
+
     const int timeRatio = 1;
 
     // 可以用另一个方法，获取Boundary物体的colldier尺寸
@@ -91,6 +94,10 @@ public class SimpleMove : MonoBehaviour {
     {
         Debug.Log("DIE");
         Destroy(gameObject, 0.1f);
+        // 播放死亡爆炸效果
+        var boom = Instantiate(dieEffect, transform.position, Quaternion.LookRotation(Vector3.up));
+        boom.Play();
+        Destroy(boom, 4);
     }
 
     

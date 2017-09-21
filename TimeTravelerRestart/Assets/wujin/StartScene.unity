@@ -688,6 +688,8 @@ GameObject:
   - component: {fileID: 897255876}
   - component: {fileID: 897255875}
   - component: {fileID: 897255880}
+  - component: {fileID: 897255882}
+  - component: {fileID: 897255881}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -782,6 +784,51 @@ MonoBehaviour:
   WaitTime: 0.5
   Type: 0
   WaitForInput: 0
+--- !u!114 &897255881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 897255874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a74ff885301af8146b37c2b42540d0c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  videoPlayer: {fileID: 0}
+  canvas: {fileID: 0}
+  videoAlphaSpeed: 0.08
+  targetAlphaValue: 0.7
+--- !u!328 &897255882
+VideoPlayer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 897255874}
+  m_Enabled: 1
+  m_VideoClip: {fileID: 32900000, guid: 139a88e53ce92b540b478acddaa0ef12, type: 3}
+  m_TargetCameraAlpha: 1
+  m_TargetCamera: {fileID: 897255878}
+  m_TargetTexture: {fileID: 0}
+  m_TimeReference: 0
+  m_TargetMaterialRenderer: {fileID: 0}
+  m_TargetMaterialProperty: _MainTex
+  m_RenderMode: 0
+  m_AspectRatio: 4
+  m_DataSource: 0
+  m_PlaybackSpeed: 1
+  m_AudioOutputMode: 1
+  m_TargetAudioSources: []
+  m_DirectAudioVolumes: []
+  m_Url: 
+  m_EnabledAudioTracks: 
+  m_DirectAudioMutes: 
+  m_ControlledAudioTrackCount: 0
+  m_PlayOnAwake: 1
+  m_SkipOnDrop: 1
+  m_Looping: 0
+  m_WaitForFirstFrame: 1
+  m_FrameReadyEventEnabled: 0
 --- !u!1 &1100678393
 GameObject:
   m_ObjectHideFlags: 0
@@ -2180,7 +2227,7 @@ GameObject:
   - component: {fileID: 2081213469}
   m_Layer: 5
   m_Name: Canvas
-  m_TagString: Untagged
+  m_TagString: StartSceneUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

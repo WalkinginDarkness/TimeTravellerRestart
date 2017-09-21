@@ -8,6 +8,7 @@ TagManager:
   - Player2
   - Boundary
   - Bullet
+  - StartSceneUI
   layers:
   - Default
   - TransparentFX

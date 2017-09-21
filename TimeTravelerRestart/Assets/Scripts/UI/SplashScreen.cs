@@ -118,7 +118,7 @@ public class SplashScreen : MonoBehaviour
                 //如果需要在关卡加载完后渐出
                 if (Type == SplashType.FadeOutThenLoadLevel)
                 {
-                    Application.LoadLevel("sence2");
+                    //Application.LoadLevel("sence2");
                 }
                 else
                 {
@@ -131,7 +131,7 @@ public class SplashScreen : MonoBehaviour
         if (mStatus == FadeStatus.FadeWait)
         {
             mStatus = FadeStatus.FadeOut;
-            StartCoroutine("loadSence2");
+            //StartCoroutine("loadSence2");
             //Debug.Log("请按任意键继续");   
         }
     }

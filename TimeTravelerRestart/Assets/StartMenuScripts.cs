@@ -83,6 +83,7 @@ public class StartMenuScripts : MonoBehaviour {
     }
     public void StartGame(int scene) {
         MainCamera.GetComponent<SplashScreen>().enabled = true;
+        MainCamera.GetComponent<SplashScreen>().SetModeID(scene);
         Background.SetActive(false);
         MainMenu.SetActive(false);
         SelectSceneMenu.SetActive(false);

@@ -3,11 +3,14 @@ using System.Collections;
 
 public class SplashScreen : MonoBehaviour
 {
-
+    //模式id
+    public int modeID = 0;
     //要加载的关卡
     public string LevelToLoad = "DiveUnityDemo";
     //Logo贴图
     public Texture2D SplashLogo;
+    //Logos贴图
+    public Texture2D[] SplashLogoList;
     //渐入渐出速度
     public float FadeSpeed = 0.3F;
     //等待时间
@@ -99,6 +102,21 @@ public class SplashScreen : MonoBehaviour
             GUI.color = new Color(GUI.color.r, GUI.color.g, GUI.color.b, Mathf.Clamp(mAlpha, 0, 1));
             GUI.DrawTexture(mSplashLogoPos, SplashLogo);
 
+            //绘制logo list中的logo
+            if (modeID < SplashLogoList.Length)
+            {
+                Rect pos = new Rect();
+                Texture2D logo = SplashLogoList[modeID];
+                pos.x = (Screen.width * 0.5F - logo.width * 0.5F);
+                pos.y = (Screen.height * 0.5F - logo.height * 0.5F);
+                pos.width = logo.width;
+                pos.height = logo.height;
+                GUI.DrawTexture(pos, logo);
+            } else
+            {
+                Debug.LogWarning("logo list not set for scene mode=" + (modeID + 1));
+            }
+
             //状态判断
             if (mAlpha > 1.0F)
             {
@@ -152,4 +170,8 @@ public class SplashScreen : MonoBehaviour
         }
     }
 
+    public void SetModeID(int mode)
+    {
+        modeID = mode - 1;
+    }
 }

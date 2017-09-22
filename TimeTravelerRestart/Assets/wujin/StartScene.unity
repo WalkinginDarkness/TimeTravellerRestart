@@ -916,7 +916,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LevelToLoad: DiveUnityDemo
-  SplashLogo: {fileID: 2800000, guid: d637dd7a33a61244fa28c873fe350aad, type: 3}
+  SplashLogo: {fileID: 2800000, guid: bdd09d9099bcbe14aa28c740495a8763, type: 3}
   FadeSpeed: 0.3
   WaitTime: 0.5
   Type: 0

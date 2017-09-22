@@ -359,7 +359,7 @@ MonoBehaviour:
   key: 107
   skillName: "\u4F4D\u7F6E\u4EA4\u6362"
   skillType: 0
-  clip: {fileID: 8300000, guid: 815c7b4c76361f54fa855f6f81527619, type: 3}
+  clip: {fileID: 8300000, guid: 4fcb680a4fc85c4409f9ff1b367f2471, type: 3}
   coldDown: 0
   powerConsumeSpeed: 1
   teleportPrefab: {fileID: 198548075578565262, guid: 5fb35bc66888f4524a9e9fb813f85551,
@@ -424,7 +424,7 @@ MonoBehaviour:
   key: 108
   skillName: "\u52A0\u901F"
   skillType: 1
-  clip: {fileID: 8300000, guid: 815c7b4c76361f54fa855f6f81527619, type: 3}
+  clip: {fileID: 8300000, guid: 92915b77881be4ee0b8ab7416d039db4, type: 3}
   coldDown: 2
   powerConsumeSpeed: 30
   skillDurationTime: 0.6

@@ -6,10 +6,17 @@ public class BulletDemage : MonoBehaviour
 {
     public int attackDamage;
     public ParticleSystem explosionEffect;
+    public AudioClip clip_小爆炸;
 
     GameObject hitObject;
     private string shooter;
     private string hitID;
+    private AudioSource audioSource;
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     void OnTriggerEnter(Collider other)
     {
@@ -31,6 +38,9 @@ public class BulletDemage : MonoBehaviour
                 var boom = Instantiate(explosionEffect, transform.position, Quaternion.LookRotation(Vector3.up));
                 boom.Play();
                 Destroy(boom, 4);
+                // 播放爆炸声音
+                audioSource.clip = clip_小爆炸;
+                
             }
         }
     }

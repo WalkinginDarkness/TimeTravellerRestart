@@ -22,6 +22,9 @@ public class SimpleMove : MonoBehaviour {
     [Tooltip("死亡特效")]
     public ParticleSystem dieEffect;
 
+    public AudioClip clip_爆炸音效;
+    private AudioSource audioSource;
+
     const int timeRatio = 1;
 
     // 可以用另一个方法，获取Boundary物体的colldier尺寸
@@ -34,6 +37,7 @@ public class SimpleMove : MonoBehaviour {
         PlayerStatusController.RegisterPlayerProperty(this, initialHealth, initialPower, initialPowerIncreaseSpeed);
         Debug.Log("玩家" + this.name + " 初始化完毕");
 
+        audioSource = gameObject.GetComponent<AudioSource>();
         //boundary = GameObject.FindWithTag("Boundary").GetComponent<BoxCollider>();
     }
 
@@ -99,6 +103,8 @@ public class SimpleMove : MonoBehaviour {
         Debug.Log("DIE");
         Destroy(gameObject, 0.1f);
         // 播放死亡爆炸效果
+
+        audioSource.clip = clip_爆炸音效;
         
     }
 

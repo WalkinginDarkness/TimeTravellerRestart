@@ -48,6 +48,12 @@ public class SimpleMove : MonoBehaviour {
 
     private void OnDestroy() {
         //Player销毁时根据playerID销毁销毁player的所有信息
+        GameObject.FindObjectOfType<PauseMenuManager>().BlockPauseMenu();
+        if (playerID == "1") {
+            GameObject.FindObjectOfType<CommitMenuManager>().Player2Win();
+        } else {
+            GameObject.FindObjectOfType<CommitMenuManager>().Player1Win();
+        }
         PlayerStatusController.RemovePlayer(playerID);
     }
 

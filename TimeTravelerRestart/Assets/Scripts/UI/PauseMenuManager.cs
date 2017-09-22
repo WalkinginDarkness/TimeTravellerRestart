@@ -3,25 +3,41 @@ using UnityEngine.SceneManagement;
 using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.Audio;
+using System;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
 
 public class PauseMenuManager : MonoBehaviour {
 
-    public GameObject pauseMenu;
+    public GameObject menuCanvas;
+    public GameObject guideCanvas;
+    public GameObject statusCanvas;
+
     private Text btnModeText;
+    private bool isBlockPauseMenu;
     DestroyByBoundary destroyByBoundary;
 
     void Start() {
-        if(pauseMenu == null) { 
-            pauseMenu = GameObject.Find("PauseMenu");
+        isBlockPauseMenu = false;
+        if (menuCanvas == null) { 
+            menuCanvas = GameObject.Find("MenuCanvas");
+           
         }
-        pauseMenu.SetActive(false);
+        if(guideCanvas == null) {
+            guideCanvas = GameObject.Find("GuideCanvas");
+        }
+        if (statusCanvas == null)
+        {
+            statusCanvas = GameObject.Find("StatusCanvas");
+        }
+        menuCanvas.SetActive(false);
+        guideCanvas.SetActive(false);
+        statusCanvas.SetActive(true);
         // 寻找Mode的UI视图（现在是文字，之后也可以改成图片等）
         if (btnModeText == null)
         {
-            var go = pauseMenu.transform.Find("Options/Text");
+            var go = menuCanvas.transform.Find("Options/Text");
             if (go != null)
             {
                 btnModeText = go.GetComponent<Text>();
@@ -36,7 +52,7 @@ public class PauseMenuManager : MonoBehaviour {
     }
 
     void Update() {
-        if (Input.GetKeyDown(KeyCode.Escape)) {
+        if (Input.GetKeyDown(KeyCode.Escape) && !isBlockPauseMenu) {
             PauseGame();
         }
         if (Input.GetKeyDown(KeyCode.R))
@@ -45,13 +61,21 @@ public class PauseMenuManager : MonoBehaviour {
         }
     }
 
+    internal void BlockPauseMenu()
+    {
+        isBlockPauseMenu = true;
+    }
+
     private void PauseGame() {
-        if(pauseMenu.activeSelf) {
+        Debug.LogError(guideCanvas);
+        if(menuCanvas.activeSelf) {
             Time.timeScale = 1;
-            pauseMenu.SetActive(false);
+            guideCanvas.SetActive(false);
+            menuCanvas.SetActive(false);
         } else {
             Time.timeScale = 0;
-            pauseMenu.SetActive(true);
+            menuCanvas.SetActive(true);
+            guideCanvas.SetActive(true);
         }
     }
  

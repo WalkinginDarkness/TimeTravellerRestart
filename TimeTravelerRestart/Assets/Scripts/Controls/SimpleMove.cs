@@ -92,12 +92,14 @@ public class SimpleMove : MonoBehaviour {
 
     void Death()
     {
+        var boom = Instantiate(dieEffect, transform.position, Quaternion.LookRotation(Vector3.up));
+        boom.Play();
+        //Destroy(boom, 3);
+        
         Debug.Log("DIE");
         Destroy(gameObject, 0.1f);
         // 播放死亡爆炸效果
-        var boom = Instantiate(dieEffect, transform.position, Quaternion.LookRotation(Vector3.up));
-        boom.Play();
-        Destroy(boom, 4);
+        
     }
 
     

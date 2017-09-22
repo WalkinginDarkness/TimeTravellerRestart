@@ -19,7 +19,7 @@ public class BulletMove : MonoBehaviour {
     private string parentName;
 
 	void Start () {
-        Destroy(gameObject, 25);
+        Destroy(gameObject, 30);
 		if (pss == null)
 			pss = GetComponentsInChildren<ParticleSystem> ();
 		if (pss == null || pss.Length == 0)

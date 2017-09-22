@@ -35,6 +35,12 @@ public class CameraVideo : MonoBehaviour {
 	}
 
     private void Update(){
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            // fake call EndReached
+            bPlay = true;
+            bIsEnd = true;
+        }
         if (bIsEnd)
         {
             //Debug.Log(videoPlayer.targetCameraAlpha);
@@ -49,6 +55,7 @@ public class CameraVideo : MonoBehaviour {
                 videoPlayer.enabled = false;
             }
         }
+        
     }
 
     void Prepared(VideoPlayer videoPlayer){

@@ -406,7 +406,7 @@ MonoBehaviour:
   clip: {fileID: 8300000, guid: 815c7b4c76361f54fa855f6f81527619, type: 3}
   coldDown: 0.5
   powerConsumeSpeed: 0
-  bulletModel: {fileID: 114916633139537784, guid: ef4d9657b04bd7848a274190acff8fc9,
+  bulletModel: {fileID: 114916633139537784, guid: 3b943bc3ab9107a469b38fe9a1e5d82a,
     type: 2}
   lastBullet: {fileID: 0}
   bulletSpawnPoint: {fileID: 4624864637725092}

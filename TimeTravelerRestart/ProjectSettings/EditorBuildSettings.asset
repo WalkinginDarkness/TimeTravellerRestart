@@ -5,10 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/wujin/StartScene.unity
     guid: 40b6f2bdd494101478fc2352bc90ea87
-  - enabled: 1
+  - enabled: 0
     path: Assets/wujin/mode_1.unity
     guid: 2d5c9de541f84ba4bb7970c26262635a
   - enabled: 0

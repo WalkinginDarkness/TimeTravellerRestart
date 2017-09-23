@@ -12,6 +12,7 @@ public class PauseMenuManager : MonoBehaviour {
     public GameObject pauseMenu;
     private Text btnModeText;
     DestroyByBoundary destroyByBoundary;
+    private bool isBlockPauseMenu = false;
 
     void Start() {
         if(pauseMenu == null) { 
@@ -36,13 +37,18 @@ public class PauseMenuManager : MonoBehaviour {
     }
 
     void Update() {
-        if (Input.GetKeyDown(KeyCode.Escape)) {
+        if (Input.GetKeyDown(KeyCode.Escape) && !isBlockPauseMenu) {
             PauseGame();
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
             RestartLevel();
         }
+    }
+
+    internal void BlockPauseMenu()
+    {
+        isBlockPauseMenu = true;
     }
 
     private void PauseGame() {

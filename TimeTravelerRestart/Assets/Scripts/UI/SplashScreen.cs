@@ -54,14 +54,11 @@ public class SplashScreen : MonoBehaviour
         //保存相机
         mCam = Camera.main;
         mCamObj = Camera.main.gameObject;
-        if (SplashLogo != null)
-        {
-            //计算Logo绘制的位置
-            mSplashLogoPos.x = (Screen.width * 0.5F - SplashLogo.width * 0.5F);
-            mSplashLogoPos.y = (Screen.height * 0.5F - SplashLogo.height * 0.5F);
-            mSplashLogoPos.width = SplashLogo.width;
-            mSplashLogoPos.height = SplashLogo.height;
-        }
+        //计算Logo绘制的位置
+        mSplashLogoPos.x = (Screen.width * 0.5F - SplashLogo.width * 0.5F);
+        mSplashLogoPos.y = (Screen.height * 0.5F - SplashLogo.height * 0.5F);
+        mSplashLogoPos.width = SplashLogo.width;
+        mSplashLogoPos.height = SplashLogo.height;
         //如果是渐出后加载关卡则保留相机
         if (Type == SplashType.LoadLevelThenFadeOut)
         {
@@ -99,33 +96,21 @@ public class SplashScreen : MonoBehaviour
 
     void OnGUI()
     {
-        if (true)
+        if (SplashLogo != null)
         {
             //绘制Logo
-            if (SplashLogo != null)
-            {
-                GUI.color = new Color(GUI.color.r, GUI.color.g, GUI.color.b, Mathf.Clamp(mAlpha, 0, 1));
-                GUI.DrawTexture(mSplashLogoPos, SplashLogo);
-            }
+            GUI.color = new Color(GUI.color.r, GUI.color.g, GUI.color.b, Mathf.Clamp(mAlpha, 0, 1));
+            GUI.DrawTexture(mSplashLogoPos, SplashLogo);
 
             //绘制logo list中的logo
             if (modeID < SplashLogoList.Length)
             {
-                GUI.color = new Color(GUI.color.r, GUI.color.g, GUI.color.b, Mathf.Clamp(mAlpha, 0, 1));
                 Rect pos = new Rect();
                 Texture2D logo = SplashLogoList[modeID];
-                float ratio = 1.0f * logo.width / logo.height;
-                if (1.0 * Screen.width / Screen.height >= ratio)
-                {
-                    pos.width = Screen.width;
-                    pos.height = (float)(1.0 * Screen.width / ratio);
-                } else
-                {
-                    pos.height = Screen.height;
-                    pos.width = (float)(Screen.height * ratio);
-                }
-                pos.x = (Screen.width * 0.5F - pos.width * 0.5F);
-                pos.y = (Screen.height * 0.5F - pos.height * 0.5F);
+                pos.x = (Screen.width * 0.5F - logo.width * 0.5F);
+                pos.y = (Screen.height * 0.5F - logo.height * 0.5F);
+                pos.width = logo.width;
+                pos.height = logo.height;
                 GUI.DrawTexture(pos, logo);
             } else
             {
